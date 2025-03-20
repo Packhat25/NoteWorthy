@@ -55,7 +55,7 @@
             // 
             // button2
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.Anchor = AnchorStyles.Top;
             button2.BackColor = Color.FromArgb(5, 102, 141);
             button2.BackgroundImageLayout = ImageLayout.Zoom;
             button2.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
@@ -63,7 +63,7 @@
             button2.Font = new Font("Century Gothic", 9F);
             button2.ForeColor = Color.White;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(353, 120);
+            button2.Location = new Point(393, 120);
             button2.Margin = new Padding(0);
             button2.Name = "button2";
             button2.Size = new Size(142, 31);
@@ -73,7 +73,7 @@
             // 
             // button1
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Anchor = AnchorStyles.Top;
             button1.BackColor = Color.FromArgb(5, 102, 141);
             button1.BackgroundImageLayout = ImageLayout.Zoom;
             button1.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
@@ -81,7 +81,7 @@
             button1.Font = new Font("Century Gothic", 9F);
             button1.ForeColor = Color.White;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(353, 195);
+            button1.Location = new Point(393, 195);
             button1.Margin = new Padding(0);
             button1.Name = "button1";
             button1.Size = new Size(142, 31);

@@ -16,8 +16,7 @@ namespace NoteWorthy
         public settingsPanel()
         {
             InitializeComponent();
-            button1.Location = new(this.Width / 2 - button1.Width / 2, 195);
-            button2.Location = new(this.Width / 2 - button2.Width / 2, 120);
+            
 
         }
         private void btnLogout_Click(object sender, EventArgs e)
