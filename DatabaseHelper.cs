@@ -38,7 +38,7 @@ namespace NoteWorthy
         OleDbCommand? cmd;
         DataSet? ds;
         int indexRow;
-        public static string DatabasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BookmarkProject.accdb");
+        public static string DatabasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database","BookmarkProject.accdb");
         public static string ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={DatabasePath};";
 
         public void testCon()

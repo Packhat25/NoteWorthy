@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Icons\" />
+    <Folder Include="Database\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Database\BookmarkProject.accdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
