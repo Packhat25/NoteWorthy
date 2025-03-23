@@ -76,10 +76,10 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel1.BackColor = Color.FromArgb(169, 211, 255);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(15, 174);
+            panel1.Location = new Point(58, 169);
             panel1.Name = "panel1";
             panel1.Size = new Size(351, 218);
             panel1.TabIndex = 11;
@@ -96,12 +96,12 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.Top;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel3.BackColor = Color.FromArgb(169, 211, 255);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(489, 171);
+            panel3.Location = new Point(511, 169);
             panel3.Name = "panel3";
-            panel3.Size = new Size(323, 221);
+            panel3.Size = new Size(351, 218);
             panel3.TabIndex = 12;
             // 
             // label3
@@ -119,9 +119,9 @@
             panel4.BackColor = Color.FromArgb(169, 211, 255);
             panel4.Controls.Add(label4);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 487);
+            panel4.Location = new Point(0, 470);
             panel4.Name = "panel4";
-            panel4.Size = new Size(928, 145);
+            panel4.Size = new Size(928, 162);
             panel4.TabIndex = 13;
             // 
             // label4
