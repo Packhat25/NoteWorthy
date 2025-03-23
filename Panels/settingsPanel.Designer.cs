@@ -31,6 +31,9 @@
             btnLogout = new Button();
             button2 = new Button();
             button1 = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // btnLogout
@@ -89,15 +92,39 @@
             button1.Text = "Delete Account";
             button1.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(5, 102, 141);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(928, 60);
+            panel2.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(15, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(116, 33);
+            label1.TabIndex = 0;
+            label1.Text = "Settings";
+            // 
             // settingsPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(btnLogout);
             Name = "settingsPanel";
             Size = new Size(928, 632);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -106,5 +133,7 @@
         private Button btnLogout;
         private Button button1;
         private Button button2;
+        private Panel panel2;
+        private Label label1;
     }
 }

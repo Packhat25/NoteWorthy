@@ -69,8 +69,7 @@ namespace NoteWorthy
             this.Close();
             if (this.Owner is StartUpUI startup)
             {
-                startup.loginUI();
-                
+                startup.loginUI();                
             }
             
 

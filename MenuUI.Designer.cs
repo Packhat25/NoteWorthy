@@ -56,7 +56,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(5, 102, 141);
+            panel1.BackColor = Color.FromArgb(5, 122, 170);
             panel1.Controls.Add(btnHam);
             panel1.Controls.Add(btnMax);
             panel1.Controls.Add(btnExit);
@@ -81,10 +81,11 @@
             // btnMax
             // 
             btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.FromArgb(5, 102, 141);
+            btnMax.BackColor = Color.Transparent;
             btnMax.BackgroundImage = Properties.Resources.maximize;
             btnMax.BackgroundImageLayout = ImageLayout.Stretch;
             btnMax.FlatAppearance.BorderColor = Color.FromArgb(5, 102, 141);
+            btnMax.FlatAppearance.BorderSize = 0;
             btnMax.FlatStyle = FlatStyle.Flat;
             btnMax.Location = new Point(906, 3);
             btnMax.Name = "btnMax";
@@ -96,10 +97,11 @@
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.BackColor = Color.FromArgb(5, 102, 141);
+            btnExit.BackColor = Color.Transparent;
             btnExit.BackgroundImage = Properties.Resources.close;
             btnExit.BackgroundImageLayout = ImageLayout.Stretch;
             btnExit.FlatAppearance.BorderColor = Color.FromArgb(5, 102, 141);
+            btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Location = new Point(938, 3);
             btnExit.Name = "btnExit";
@@ -111,10 +113,11 @@
             // btnMinimized
             // 
             btnMinimized.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMinimized.BackColor = Color.FromArgb(5, 102, 141);
+            btnMinimized.BackColor = Color.Transparent;
             btnMinimized.BackgroundImage = Properties.Resources.minimize;
             btnMinimized.BackgroundImageLayout = ImageLayout.Stretch;
             btnMinimized.FlatAppearance.BorderColor = Color.FromArgb(5, 102, 141);
+            btnMinimized.FlatAppearance.BorderSize = 0;
             btnMinimized.FlatStyle = FlatStyle.Flat;
             btnMinimized.Location = new Point(874, 3);
             btnMinimized.Name = "btnMinimized";

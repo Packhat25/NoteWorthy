@@ -14,8 +14,7 @@ namespace NoteWorthy
     {
         public profilePanel()
         {
-            InitializeComponent();
-            userNameLbl.Text= SessionManager.CurrentUsername;
+            InitializeComponent();            
         }
 
         private void userNameLbl_Click(object sender, EventArgs e)
