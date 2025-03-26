@@ -61,7 +61,9 @@ namespace NoteWorthy
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);               
+                tbxPassword.Clear();
+                tbxUsername.Clear();
             }
         }
 

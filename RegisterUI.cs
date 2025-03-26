@@ -45,6 +45,14 @@ namespace NoteWorthy
                     return;
                 }
                 DatabaseHelper dataBase = new DatabaseHelper();
+                if (dataBase.UsernameExists(username))
+                {
+                    MessageBox.Show("Username already exists. Choose a different one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbxConfirmPass.Clear();
+                    tbxPassword.Clear();
+                    tbxUsername.Clear();
+                    return;
+                }
                 dataBase.register(username, password);
                 this.Opacity = 0;
                 this.Close();

@@ -122,6 +122,22 @@ namespace NoteWorthy
                 }
             }
         }
+        public bool UsernameExists(string username)
+        {
+            bool exists = false;
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Users WHERE Username = ?";
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?", username);
+                    int count = (int)cmd.ExecuteScalar(); 
+                    exists = count > 0; 
+                }
+            }
+            return exists;
+        }
 
     }
 }

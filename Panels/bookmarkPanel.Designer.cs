@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
             button2 = new Button();
             button1 = new Button();
             btnRegister = new Button();
-            dataGridView2 = new DataGridView();
+            dgvBookmark = new DataGridView();
+            Title = new DataGridViewTextBoxColumn();
+            Genre = new DataGridViewTextBoxColumn();
+            Volume = new DataGridViewTextBoxColumn();
+            Edition = new DataGridViewTextBoxColumn();
+            Chapter = new DataGridViewTextBoxColumn();
+            Pagenum = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookmark).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -117,21 +126,80 @@
             btnRegister.Text = "Add new Bookmark";
             btnRegister.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // dgvBookmark
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(169, 211, 255);
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(0, 60);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(928, 505);
-            dataGridView2.TabIndex = 11;
+            dgvBookmark.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBookmark.BackgroundColor = Color.FromArgb(169, 211, 255);
+            dgvBookmark.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvBookmark.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { Title, Genre, Volume, Edition, Chapter, Pagenum });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvBookmark.Dock = DockStyle.Fill;
+            dgvBookmark.GridColor = Color.FromArgb(169, 211, 255);
+            dgvBookmark.Location = new Point(0, 60);
+            dgvBookmark.Name = "dgvBookmark";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvBookmark.RowHeadersVisible = false;
+            dgvBookmark.Size = new Size(928, 505);
+            dgvBookmark.TabIndex = 11;
+            // 
+            // Title
+            // 
+            Title.HeaderText = "Title";
+            Title.Name = "Title";
+            // 
+            // Genre
+            // 
+            Genre.HeaderText = "Genre";
+            Genre.Name = "Genre";
+            // 
+            // Volume
+            // 
+            Volume.HeaderText = "Volume";
+            Volume.Name = "Volume";
+            // 
+            // Edition
+            // 
+            Edition.HeaderText = "Edition";
+            Edition.Name = "Edition";
+            // 
+            // Chapter
+            // 
+            Chapter.HeaderText = "Chapter";
+            Chapter.Name = "Chapter";
+            // 
+            // Pagenum
+            // 
+            Pagenum.HeaderText = "Page Number";
+            Pagenum.Name = "Pagenum";
             // 
             // bookmarkPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView2);
+            Controls.Add(dgvBookmark);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "bookmarkPanel";
@@ -139,7 +207,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookmark).EndInit();
             ResumeLayout(false);
         }
 
@@ -149,9 +217,15 @@
         private DataGridView dataGridView1;
         private Panel panel2;
         private Panel panel1;
-        private DataGridView dataGridView2;
+        private DataGridView dgvBookmark;
         private Button button2;
         private Button button1;
         private Button btnRegister;
+        private DataGridViewTextBoxColumn Title;
+        private DataGridViewTextBoxColumn Genre;
+        private DataGridViewTextBoxColumn Volume;
+        private DataGridViewTextBoxColumn Edition;
+        private DataGridViewTextBoxColumn Chapter;
+        private DataGridViewTextBoxColumn Pagenum;
     }
 }

@@ -35,6 +35,8 @@
             label4 = new Label();
             lblUserName = new Label();
             panel2 = new Panel();
+            button1 = new Button();
+            button2 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -111,11 +113,49 @@
             panel2.Size = new Size(928, 60);
             panel2.TabIndex = 7;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.BackColor = Color.FromArgb(5, 102, 141);
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 9F);
+            button1.ForeColor = Color.White;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(101, 487);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(142, 31);
+            button1.TabIndex = 9;
+            button1.Text = "Delete Account";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button2.BackColor = Color.FromArgb(5, 102, 141);
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Century Gothic", 9F);
+            button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(101, 412);
+            button2.Margin = new Padding(0);
+            button2.Name = "button2";
+            button2.Size = new Size(142, 31);
+            button2.TabIndex = 10;
+            button2.Text = "Change Password";
+            button2.UseVisualStyleBackColor = false;
+            // 
             // profilePanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
             Controls.Add(panel2);
+            Controls.Add(button2);
             Controls.Add(panel1);
             Name = "profilePanel";
             Size = new Size(928, 632);
@@ -135,5 +175,7 @@
         private Panel panel2;
         private TextBox textBox2;
         private TextBox textBox1;
+        private Button button1;
+        private Button button2;
     }
 }

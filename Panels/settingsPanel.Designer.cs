@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             btnLogout = new Button();
-            button2 = new Button();
-            button1 = new Button();
             panel2 = new Panel();
             label1 = new Label();
             panel2.SuspendLayout();
@@ -55,42 +53,6 @@
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Top;
-            button2.BackColor = Color.FromArgb(5, 102, 141);
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 9F);
-            button2.ForeColor = Color.White;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(393, 120);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(142, 31);
-            button2.TabIndex = 8;
-            button2.Text = "Change Password";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top;
-            button1.BackColor = Color.FromArgb(5, 102, 141);
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9F);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(393, 195);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(142, 31);
-            button1.TabIndex = 7;
-            button1.Text = "Delete Account";
-            button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -118,8 +80,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel2);
-            Controls.Add(button1);
-            Controls.Add(button2);
             Controls.Add(btnLogout);
             Name = "settingsPanel";
             Size = new Size(928, 632);
@@ -131,8 +91,6 @@
         #endregion
 
         private Button btnLogout;
-        private Button button1;
-        private Button button2;
         private Panel panel2;
         private Label label1;
     }
