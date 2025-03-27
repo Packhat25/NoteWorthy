@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             label1 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
             button2 = new Button();
             button1 = new Button();
-            btnRegister = new Button();
+            btnNewbookmark = new Button();
             dgvBookmark = new DataGridView();
             Title = new DataGridViewTextBoxColumn();
             Genre = new DataGridViewTextBoxColumn();
@@ -74,7 +74,7 @@
             // 
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(btnRegister);
+            panel1.Controls.Add(btnNewbookmark);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 565);
             panel1.Name = "panel1";
@@ -111,56 +111,57 @@
             button1.Text = "Edit Bookmark";
             button1.UseVisualStyleBackColor = false;
             // 
-            // btnRegister
+            // btnNewbookmark
             // 
-            btnRegister.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnRegister.BackColor = Color.FromArgb(5, 102, 141);
-            btnRegister.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
-            btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Font = new Font("Century Gothic", 11.25F);
-            btnRegister.ForeColor = Color.Transparent;
-            btnRegister.Location = new Point(47, 18);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(213, 34);
-            btnRegister.TabIndex = 13;
-            btnRegister.Text = "Add new Bookmark";
-            btnRegister.UseVisualStyleBackColor = false;
+            btnNewbookmark.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            btnNewbookmark.BackColor = Color.FromArgb(5, 102, 141);
+            btnNewbookmark.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnNewbookmark.FlatStyle = FlatStyle.Flat;
+            btnNewbookmark.Font = new Font("Century Gothic", 11.25F);
+            btnNewbookmark.ForeColor = Color.Transparent;
+            btnNewbookmark.Location = new Point(47, 18);
+            btnNewbookmark.Name = "btnNewbookmark";
+            btnNewbookmark.Size = new Size(213, 34);
+            btnNewbookmark.TabIndex = 13;
+            btnNewbookmark.Text = "Add new Bookmark";
+            btnNewbookmark.UseVisualStyleBackColor = false;
+            btnNewbookmark.Click += btnNewbookmark_Click;
             // 
             // dgvBookmark
             // 
             dgvBookmark.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBookmark.BackgroundColor = Color.FromArgb(169, 211, 255);
             dgvBookmark.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvBookmark.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { Title, Genre, Volume, Edition, Chapter, Pagenum });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle8;
             dgvBookmark.Dock = DockStyle.Fill;
             dgvBookmark.GridColor = Color.FromArgb(169, 211, 255);
             dgvBookmark.Location = new Point(0, 60);
             dgvBookmark.Name = "dgvBookmark";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvBookmark.RowHeadersVisible = false;
             dgvBookmark.Size = new Size(928, 505);
             dgvBookmark.TabIndex = 11;
@@ -220,7 +221,7 @@
         private DataGridView dgvBookmark;
         private Button button2;
         private Button button1;
-        private Button btnRegister;
+        private Button btnNewbookmark;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Genre;
         private DataGridViewTextBoxColumn Volume;

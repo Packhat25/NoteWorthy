@@ -14,9 +14,16 @@ namespace NoteWorthy
     {
         public bookmarkPanel()
         {
-            InitializeComponent();          
+            InitializeComponent();
             this.BringToFront();
 
+        }
+
+        private void btnNewbookmark_Click(object sender, EventArgs e)
+        {
+           addBookmarkUI bookmarkUI = new addBookmarkUI();
+            bookmarkUI.ShowDialog();
+            
         }
     }
 }
