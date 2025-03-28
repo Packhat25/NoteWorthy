@@ -303,7 +303,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "addBookmarkUI";
+            Text = "Add a bookmark";
             pnlbutton.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

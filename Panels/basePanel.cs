@@ -10,19 +10,13 @@ using System.Windows.Forms;
 
 namespace NoteWorthy
 {
-    public partial class settingsPanel : basePanel
+    public partial class basePanel : UserControl
     {
-        public event Action LogoutRequested;
-        public settingsPanel()
+        protected DatabaseHelper dbHelper;
+        public basePanel()
         {
             InitializeComponent();
-            
-
+            dbHelper = new DatabaseHelper();
         }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            LogoutRequested?.Invoke();
-        }
-
     }
 }

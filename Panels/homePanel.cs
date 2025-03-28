@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace NoteWorthy
 {
-    public partial class homePanel : UserControl
+    public partial class homePanel : basePanel
     {
         public homePanel()
         {

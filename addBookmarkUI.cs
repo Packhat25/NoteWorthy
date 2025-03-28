@@ -41,6 +41,7 @@ namespace NoteWorthy
             author = tbxAuthor.Text.Trim();
 
             dbHelper.addBookmark(title, genre, volume, edition, chapter, pageNum, author);
+            this.Close();
 
         }
         private void btnSubmit_Enter(object sender, EventArgs e)

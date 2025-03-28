@@ -13,6 +13,7 @@ namespace NoteWorthy
     public partial class BaseForm : Form
     {
         protected DatabaseHelper dbHelper;
+     
         public BaseForm()
         {
             InitializeComponent();

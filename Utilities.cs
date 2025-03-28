@@ -46,5 +46,17 @@ namespace NoteWorthy
                 return builder.ToString();
             }
         }
+        public static int OrdinalToInt(string ordinal)
+        {
+            if (string.IsNullOrEmpty(ordinal))
+                return 0; // Default to 0 if empty
+
+            string numberPart = new string(ordinal.TakeWhile(char.IsDigit).ToArray());
+
+            if (int.TryParse(numberPart, out int result))
+                return result;
+
+            return 0; // Default if parsing fails
+        }
     }    
 }
