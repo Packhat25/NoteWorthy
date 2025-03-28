@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <None Update="Database\BookmarkProject.accdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace NoteWorthy
 {
-    public partial class RegisterUI : Form
+    public partial class RegisterUI : BaseForm
     {
         private StartUpUI startupForm;
         
@@ -44,8 +44,8 @@ namespace NoteWorthy
                     MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                DatabaseHelper dataBase = new DatabaseHelper();
-                if (dataBase.UsernameExists(username))
+               
+                if (dbHelper.UsernameExists(username))
                 {
                     MessageBox.Show("Username already exists. Choose a different one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tbxConfirmPass.Clear();
@@ -53,7 +53,7 @@ namespace NoteWorthy
                     tbxUsername.Clear();
                     return;
                 }
-                dataBase.register(username, password);
+                dbHelper.register(username, password);
                 this.Opacity = 0;
                 this.Close();
                 if(this.Owner is StartUpUI startup)

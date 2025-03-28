@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace NoteWorthy
 {
-    public partial class addBookmarkUI : Form
+    public partial class addBookmarkUI : BaseForm
     {
         public addBookmarkUI()
         {

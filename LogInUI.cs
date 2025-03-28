@@ -6,7 +6,7 @@ using Timer = System.Windows.Forms.Timer;
 namespace NoteWorthy
 {
 
-    public partial class LogInUI : Form
+    public partial class LogInUI : BaseForm
     {
         private StartUpUI startupForm;
         public LogInUI()
@@ -36,9 +36,8 @@ namespace NoteWorthy
         {
             string username = tbxUsername.Text.Trim();
             string password = tbxPassword.Text;
-
-            DatabaseHelper dataBase = new DatabaseHelper();
-            int? userID = dataBase.LogIN(username, password);
+           
+            int? userID = dbHelper.LogIN(username, password);
 
             if (userID != null)
             {

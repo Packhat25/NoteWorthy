@@ -25,12 +25,11 @@ namespace NoteWorthy
             {
                 builder.Append(b.ToString("x2")); // Convert to hexadecimal
             }
-
             return builder.ToString();
             }
         }
     }
-    internal class DatabaseHelper
+    public class DatabaseHelper
     {
         
         OleDbConnection? myConn;
@@ -38,7 +37,7 @@ namespace NoteWorthy
         OleDbCommand? cmd;
         DataSet? ds;
         int indexRow;
-        public static string DatabasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database","BookmarkProject.accdb");
+        public static string DatabasePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "Database", "BookmarkProject.accdb");
         public static string ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={DatabasePath};";
 
         public void testCon()
@@ -48,7 +47,6 @@ namespace NoteWorthy
             myConn.Open();
             System.Windows.Forms.MessageBox.Show("Connected successfully!");
             myConn.Close();
-
         }
 
         public void register(string username, string password) 
@@ -59,13 +57,14 @@ namespace NoteWorthy
                 {
                     try
                     {
-                        myConn.Open();
-                        string query = "INSERT INTO Users (Username, [Password]) VALUES (@username, @passwordHash)";
+                        myConn.Open();                      
+                        string query = "INSERT INTO Users (Username, [Password], DateAdded) VALUES (?, ?, ?)";
 
                         using (cmd = new OleDbCommand(query, myConn))
                         {
                             cmd.Parameters.AddWithValue("@username", username);
                             cmd.Parameters.AddWithValue("@passwordHash", hashedPassword);
+                            cmd.Parameters.Add("@dateCreated", OleDbType.Date).Value = DateTime.Now.Date;
 
                             int result = cmd.ExecuteNonQuery();
 
@@ -81,7 +80,7 @@ namespace NoteWorthy
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

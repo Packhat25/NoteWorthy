@@ -38,14 +38,17 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             label3 = new Label();
-            textBox2 = new TextBox();
             label4 = new Label();
-            textBox3 = new TextBox();
             label5 = new Label();
             numericUpDown1 = new NumericUpDown();
+            numericUpDown3 = new NumericUpDown();
+            textBox2 = new TextBox();
+            label6 = new Label();
+            textBox3 = new TextBox();
             pnlbutton.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             SuspendLayout();
             // 
             // btnSubmit
@@ -123,11 +126,12 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(595, 51);
+            panel1.Size = new Size(579, 51);
             panel1.TabIndex = 15;
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(169, 211, 255);
             textBox1.Font = new Font("Century Gothic", 12F);
             textBox1.Location = new Point(79, 82);
             textBox1.Name = "textBox1";
@@ -156,6 +160,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.BackColor = Color.FromArgb(169, 211, 255);
             comboBox1.DropDownHeight = 120;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Century Gothic", 11.5F);
@@ -177,14 +182,6 @@
             label3.TabIndex = 22;
             label3.Text = "Volume";
             // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Century Gothic", 12F);
-            textBox2.Location = new Point(357, 127);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(187, 27);
-            textBox2.TabIndex = 21;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -194,14 +191,6 @@
             label4.Size = new Size(68, 21);
             label4.TabIndex = 24;
             label4.Text = "Edition";
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Century Gothic", 12F);
-            textBox3.Location = new Point(79, 172);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(173, 27);
-            textBox3.TabIndex = 23;
             // 
             // label5
             // 
@@ -215,25 +204,65 @@
             // 
             // numericUpDown1
             // 
+            numericUpDown1.BackColor = Color.FromArgb(169, 211, 255);
             numericUpDown1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numericUpDown1.Location = new Point(357, 172);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(187, 27);
             numericUpDown1.TabIndex = 27;
             // 
+            // numericUpDown3
+            // 
+            numericUpDown3.BackColor = Color.FromArgb(169, 211, 255);
+            numericUpDown3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericUpDown3.Location = new Point(357, 128);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(187, 27);
+            numericUpDown3.TabIndex = 29;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.FromArgb(169, 211, 255);
+            textBox2.Font = new Font("Century Gothic", 12F);
+            textBox2.Location = new Point(79, 172);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(173, 27);
+            textBox2.TabIndex = 30;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 13F);
+            label6.Location = new Point(2, 217);
+            label6.Name = "label6";
+            label6.Size = new Size(71, 21);
+            label6.TabIndex = 32;
+            label6.Text = "Author";
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = Color.FromArgb(169, 211, 255);
+            textBox3.Font = new Font("Century Gothic", 12F);
+            textBox3.Location = new Point(79, 217);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(465, 27);
+            textBox3.TabIndex = 31;
+            // 
             // addBookmarkUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(252, 204, 197);
-            ClientSize = new Size(595, 475);
+            ClientSize = new Size(579, 475);
             ControlBox = false;
+            Controls.Add(label6);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(numericUpDown3);
             Controls.Add(numericUpDown1);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(textBox3);
             Controls.Add(label3);
-            Controls.Add(textBox2);
             Controls.Add(comboBox1);
             Controls.Add(label2);
             Controls.Add(Title);
@@ -242,8 +271,9 @@
             Controls.Add(pnlbutton);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             MaximizeBox = false;
+            MaximumSize = new Size(595, 514);
             MinimizeBox = false;
-            MinimumSize = new Size(595, 0);
+            MinimumSize = new Size(595, 514);
             Name = "addBookmarkUI";
             ShowIcon = false;
             ShowInTaskbar = false;
@@ -253,6 +283,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -269,10 +300,12 @@
         private Label label2;
         private ComboBox comboBox1;
         private Label label3;
-        private TextBox textBox2;
         private Label label4;
-        private TextBox textBox3;
         private Label label5;
         private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDown3;
+        private TextBox textBox2;
+        private Label label6;
+        private TextBox textBox3;
     }
 }
