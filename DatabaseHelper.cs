@@ -7,31 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Security.Policy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace NoteWorthy
-{
-   public class Security
-{
-        public static string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            byte[] hashBytes = sha256.ComputeHash(bytes);
-
-            // Convert hashed bytes to a readable string format
-            StringBuilder builder = new StringBuilder();
-            foreach (byte b in hashBytes)
-            {
-                builder.Append(b.ToString("x2")); // Convert to hexadecimal
-            }
-            return builder.ToString();
-            }
-        }
-    }
+{    
     public class DatabaseHelper
     {
-        
+
         OleDbConnection? myConn;
         OleDbDataAdapter? da;
         OleDbCommand? cmd;
@@ -49,22 +32,22 @@ namespace NoteWorthy
             myConn.Close();
         }
 
-        public void register(string username, string password) 
+        public void register(string username, string password)
         {
-            string hashedPassword = Security.HashPassword(password);
+            string hashedPassword = Utilities.HashPassword(password);
             {
                 using (myConn = new OleDbConnection(ConnectionString))
                 {
                     try
                     {
-                        myConn.Open();                      
-                        string query = "INSERT INTO Users (Username, [Password], DateAdded) VALUES (?, ?, ?)";
+                        myConn.Open();
+                        string query = "INSERT INTO Users (Username, [Password], DateCreated) VALUES (?, ?, ?)";
 
                         using (cmd = new OleDbCommand(query, myConn))
                         {
-                            cmd.Parameters.AddWithValue("@username", username);
-                            cmd.Parameters.AddWithValue("@passwordHash", hashedPassword);
-                            cmd.Parameters.Add("@dateCreated", OleDbType.Date).Value = DateTime.Now.Date;
+                            cmd.Parameters.AddWithValue("?", username);
+                            cmd.Parameters.AddWithValue("?", hashedPassword);
+                            cmd.Parameters.AddWithValue("?", DateTime.Now.Date);
 
                             int result = cmd.ExecuteNonQuery();
 
@@ -80,14 +63,14 @@ namespace NoteWorthy
                     }
                     catch (Exception ex)
                     {
-                            MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
         public int? LogIN(string username, string password)
         {
-            string hashPassword = Security.HashPassword(password);
+            string hashPassword = Utilities.HashPassword(password);
 
             using (myConn = new OleDbConnection(ConnectionString))
             {
@@ -106,11 +89,11 @@ namespace NoteWorthy
 
                         if (result != null)
                         {
-                            return Convert.ToInt32(result);  
+                            return Convert.ToInt32(result);
                         }
                         else
                         {
-                            return null; 
+                            return null;
                         }
                     }
                 }
@@ -131,12 +114,50 @@ namespace NoteWorthy
                 using (OleDbCommand cmd = new OleDbCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("?", username);
-                    int count = (int)cmd.ExecuteScalar(); 
-                    exists = count > 0; 
+                    int count = (int)cmd.ExecuteScalar();
+                    exists = count > 0;
                 }
             }
             return exists;
         }
+        public void addBookmark(string title, string genre, string volume, string edition, string chapter, string pageNum, string author)
+        {
+            using (OleDbConnection myConn = new OleDbConnection(ConnectionString))
+            {
+                try
+                {
+                    myConn.Open();
+                    string query = "INSERT INTO Bookmarks (UserID, Title, Genre, Volume, Edition, Chapter, PageNumber, DateAdded) " +
+                                   "VALUES (@userID, @title, @genre, @volume, @edition, @chapter, @pageNumber, @dateAdded)";
 
+                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
+                    {
+                        cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);  // Match UserID
+                        cmd.Parameters.AddWithValue("@title", title);
+                        cmd.Parameters.AddWithValue("@genre", genre);    // Added Genre
+                        cmd.Parameters.AddWithValue("@volume", volume);
+                        cmd.Parameters.AddWithValue("@edition", edition);
+                        cmd.Parameters.AddWithValue("@chapter", chapter);
+                        cmd.Parameters.AddWithValue("@pageNumber", pageNum);
+                        cmd.Parameters.AddWithValue("@dateAdded", DateTime.Now.Date); // Corrected DateAdded
+
+                        int result = cmd.ExecuteNonQuery(); // Store result
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Bookmark added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to add bookmark. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

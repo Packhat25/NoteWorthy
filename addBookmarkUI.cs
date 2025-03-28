@@ -16,17 +16,31 @@ namespace NoteWorthy
         {
 
             InitializeComponent();
-            pnlbutton.Location = new Point(this.Width / 2 - pnlbutton.Width / 2, 400);
+            pnlbutton.Location = new Point(this.Width / 2 - pnlbutton.Width / 2, 400);         
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            string number = numericUpDown1.Value.ToString();
+            string number = tbxChap.Value.ToString();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string Title, Genre, Volume, Edition, Chapter, PageNo;
+            if (tbxTitle.Text == "")
+            {
+                MessageBox.Show("Title field cannot be empty!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string title, genre, volume, edition, chapter, pageNum, author;
+            title = tbxTitle.Text.Trim();
+            genre = tbxGenre.Text.Trim();
+            volume = tbxVolume.Value > 0 ? tbxVolume.Value.ToString() : "";
+            edition = tbxEdition.Value > 0 ? Utilities.GetOrdinal((int)tbxEdition.Value) : ""; 
+            chapter = tbxChap.Value > 0 ? tbxChap.Value.ToString() : "";
+            pageNum = tbxPagenum.Value > 0 ? tbxPagenum.Value.ToString() : ""; 
+            author = tbxAuthor.Text.Trim();
+
+            dbHelper.addBookmark(title, genre, volume, edition, chapter, pageNum, author);
 
         }
         private void btnSubmit_Enter(object sender, EventArgs e)

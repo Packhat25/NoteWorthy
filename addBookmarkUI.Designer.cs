@@ -33,22 +33,26 @@
             pnlbutton = new TableLayoutPanel();
             label1 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            tbxTitle = new TextBox();
             Title = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            tbxGenre = new ComboBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            textBox2 = new TextBox();
+            tbxChap = new NumericUpDown();
+            tbxVolume = new NumericUpDown();
             label6 = new Label();
-            textBox3 = new TextBox();
+            tbxAuthor = new TextBox();
+            tbxEdition = new NumericUpDown();
+            tbxPagenum = new NumericUpDown();
+            lblPagenum = new Label();
             pnlbutton.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbxChap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbxVolume).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbxEdition).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbxPagenum).BeginInit();
             SuspendLayout();
             // 
             // btnSubmit
@@ -129,14 +133,14 @@
             panel1.Size = new Size(579, 51);
             panel1.TabIndex = 15;
             // 
-            // textBox1
+            // tbxTitle
             // 
-            textBox1.BackColor = Color.FromArgb(169, 211, 255);
-            textBox1.Font = new Font("Century Gothic", 12F);
-            textBox1.Location = new Point(79, 82);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(465, 27);
-            textBox1.TabIndex = 16;
+            tbxTitle.BackColor = Color.FromArgb(169, 211, 255);
+            tbxTitle.Font = new Font("Century Gothic", 12F);
+            tbxTitle.Location = new Point(79, 82);
+            tbxTitle.Name = "tbxTitle";
+            tbxTitle.Size = new Size(465, 27);
+            tbxTitle.TabIndex = 16;
             // 
             // Title
             // 
@@ -152,31 +156,31 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 13F);
-            label2.Location = new Point(7, 127);
+            label2.Location = new Point(7, 137);
             label2.Name = "label2";
             label2.Size = new Size(66, 21);
             label2.TabIndex = 19;
             label2.Text = "Genre";
             // 
-            // comboBox1
+            // tbxGenre
             // 
-            comboBox1.BackColor = Color.FromArgb(169, 211, 255);
-            comboBox1.DropDownHeight = 120;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Font = new Font("Century Gothic", 11.5F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.IntegralHeight = false;
-            comboBox1.Items.AddRange(new object[] { "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi (Science Fiction)", "Thriller", "Slice of Life", "Supernatural", "Psychological", "Historical", "Sports", "Crime", "Suspense" });
-            comboBox1.Location = new Point(79, 127);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(173, 28);
-            comboBox1.TabIndex = 20;
+            tbxGenre.BackColor = Color.FromArgb(169, 211, 255);
+            tbxGenre.DropDownHeight = 120;
+            tbxGenre.DropDownStyle = ComboBoxStyle.DropDownList;
+            tbxGenre.Font = new Font("Century Gothic", 11.5F);
+            tbxGenre.FormattingEnabled = true;
+            tbxGenre.IntegralHeight = false;
+            tbxGenre.Items.AddRange(new object[] { "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi (Science Fiction)", "Thriller", "Slice of Life", "Supernatural", "Psychological", "Historical", "Sports", "Crime", "Suspense" });
+            tbxGenre.Location = new Point(79, 137);
+            tbxGenre.Name = "tbxGenre";
+            tbxGenre.Size = new Size(173, 28);
+            tbxGenre.TabIndex = 20;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 13F);
-            label3.Location = new Point(271, 127);
+            label3.Location = new Point(271, 137);
             label3.Name = "label3";
             label3.Size = new Size(80, 21);
             label3.TabIndex = 22;
@@ -186,7 +190,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13F);
-            label4.Location = new Point(5, 172);
+            label4.Location = new Point(5, 192);
             label4.Name = "label4";
             label4.Size = new Size(68, 21);
             label4.TabIndex = 24;
@@ -196,57 +200,76 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 13F);
-            label5.Location = new Point(267, 172);
+            label5.Location = new Point(267, 192);
             label5.Name = "label5";
             label5.Size = new Size(84, 21);
             label5.TabIndex = 26;
             label5.Text = "Chapter";
             // 
-            // numericUpDown1
+            // tbxChap
             // 
-            numericUpDown1.BackColor = Color.FromArgb(169, 211, 255);
-            numericUpDown1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericUpDown1.Location = new Point(357, 172);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(187, 27);
-            numericUpDown1.TabIndex = 27;
+            tbxChap.BackColor = Color.FromArgb(169, 211, 255);
+            tbxChap.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxChap.Location = new Point(357, 192);
+            tbxChap.Name = "tbxChap";
+            tbxChap.Size = new Size(187, 27);
+            tbxChap.TabIndex = 27;
             // 
-            // numericUpDown3
+            // tbxVolume
             // 
-            numericUpDown3.BackColor = Color.FromArgb(169, 211, 255);
-            numericUpDown3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericUpDown3.Location = new Point(357, 128);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(187, 27);
-            numericUpDown3.TabIndex = 29;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = Color.FromArgb(169, 211, 255);
-            textBox2.Font = new Font("Century Gothic", 12F);
-            textBox2.Location = new Point(79, 172);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(173, 27);
-            textBox2.TabIndex = 30;
+            tbxVolume.BackColor = Color.FromArgb(169, 211, 255);
+            tbxVolume.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxVolume.Location = new Point(357, 137);
+            tbxVolume.Name = "tbxVolume";
+            tbxVolume.Size = new Size(187, 27);
+            tbxVolume.TabIndex = 29;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 13F);
-            label6.Location = new Point(2, 217);
+            label6.Location = new Point(2, 302);
             label6.Name = "label6";
             label6.Size = new Size(71, 21);
             label6.TabIndex = 32;
             label6.Text = "Author";
             // 
-            // textBox3
+            // tbxAuthor
             // 
-            textBox3.BackColor = Color.FromArgb(169, 211, 255);
-            textBox3.Font = new Font("Century Gothic", 12F);
-            textBox3.Location = new Point(79, 217);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(465, 27);
-            textBox3.TabIndex = 31;
+            tbxAuthor.BackColor = Color.FromArgb(169, 211, 255);
+            tbxAuthor.Font = new Font("Century Gothic", 12F);
+            tbxAuthor.Location = new Point(79, 302);
+            tbxAuthor.Name = "tbxAuthor";
+            tbxAuthor.Size = new Size(465, 27);
+            tbxAuthor.TabIndex = 31;
+            // 
+            // tbxEdition
+            // 
+            tbxEdition.BackColor = Color.FromArgb(169, 211, 255);
+            tbxEdition.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxEdition.Location = new Point(79, 192);
+            tbxEdition.Name = "tbxEdition";
+            tbxEdition.Size = new Size(173, 27);
+            tbxEdition.TabIndex = 33;
+            // 
+            // tbxPagenum
+            // 
+            tbxPagenum.BackColor = Color.FromArgb(169, 211, 255);
+            tbxPagenum.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxPagenum.Location = new Point(271, 247);
+            tbxPagenum.Name = "tbxPagenum";
+            tbxPagenum.Size = new Size(173, 27);
+            tbxPagenum.TabIndex = 35;
+            // 
+            // lblPagenum
+            // 
+            lblPagenum.AutoSize = true;
+            lblPagenum.Font = new Font("Century Gothic", 13F);
+            lblPagenum.Location = new Point(110, 247);
+            lblPagenum.Name = "lblPagenum";
+            lblPagenum.Size = new Size(132, 21);
+            lblPagenum.TabIndex = 34;
+            lblPagenum.Text = "Page Number";
             // 
             // addBookmarkUI
             // 
@@ -255,18 +278,20 @@
             BackColor = Color.FromArgb(252, 204, 197);
             ClientSize = new Size(579, 475);
             ControlBox = false;
+            Controls.Add(tbxPagenum);
+            Controls.Add(lblPagenum);
+            Controls.Add(tbxEdition);
             Controls.Add(label6);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(numericUpDown3);
-            Controls.Add(numericUpDown1);
+            Controls.Add(tbxAuthor);
+            Controls.Add(tbxVolume);
+            Controls.Add(tbxChap);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(tbxGenre);
             Controls.Add(label2);
             Controls.Add(Title);
-            Controls.Add(textBox1);
+            Controls.Add(tbxTitle);
             Controls.Add(panel1);
             Controls.Add(pnlbutton);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
@@ -282,8 +307,10 @@
             pnlbutton.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbxChap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbxVolume).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbxEdition).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbxPagenum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,17 +322,19 @@
         private TableLayoutPanel pnlbutton;
         private Label label1;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox tbxTitle;
         private Label Title;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox tbxGenre;
         private Label label3;
         private Label label4;
         private Label label5;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown3;
-        private TextBox textBox2;
+        private NumericUpDown tbxChap;
+        private NumericUpDown tbxVolume;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox tbxAuthor;
+        private NumericUpDown tbxEdition;
+        private NumericUpDown tbxPagenum;
+        private Label lblPagenum;
     }
 }
