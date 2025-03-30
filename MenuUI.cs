@@ -15,7 +15,13 @@ namespace NoteWorthy
 {
     public partial class MenuUI : Form
     {
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
 
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
         public MenuUI()
         {
             InitializeComponent();
@@ -128,6 +134,15 @@ namespace NoteWorthy
             SessionManager.ClearSession();
             startup.Show();
             this.Close();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
     }
 }

@@ -247,6 +247,8 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
+            btnSave.MouseEnter += btnSave_MouseEnter;
+            btnSave.MouseLeave += btnSave_MouseLeave;
             // 
             // btnCancel
             // 
@@ -266,6 +268,8 @@
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
+            btnCancel.MouseEnter += btnCancel_MouseEnter;
+            btnCancel.MouseLeave += btnCancel_MouseLeave;
             // 
             // editBookmarkUI
             // 

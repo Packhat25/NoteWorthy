@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace NoteWorthy
 {
@@ -18,12 +19,6 @@ namespace NoteWorthy
             InitializeComponent();
             pnlbutton.Location = new Point(this.Width / 2 - pnlbutton.Width / 2, 400);         
         }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            string number = tbxChap.Value.ToString();
-        }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (tbxTitle.Text == "")
@@ -60,7 +55,6 @@ namespace NoteWorthy
         {
             btnCancel.BackColor = Color.FromArgb(255, 128, 128);
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

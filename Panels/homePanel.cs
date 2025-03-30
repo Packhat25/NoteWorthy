@@ -14,11 +14,11 @@ namespace NoteWorthy
     {
         public homePanel()
         {
-            InitializeComponent();           
+            InitializeComponent();
             lblWelcome.Text = $"Welcome, {SessionManager.CurrentUsername} ";
             this.Dock = DockStyle.Fill;
             this.BringToFront();
-          
+
         }
 
         private void homePanel_Load(object sender, EventArgs e)

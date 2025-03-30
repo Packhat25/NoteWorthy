@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
@@ -43,8 +43,8 @@
             tbxSearch = new TextBox();
             btnSearch = new Button();
             panel5 = new Panel();
-            tbxFilter = new TextBox();
-            button5 = new Button();
+            cmbFilter = new ComboBox();
+            btnFilter = new Button();
             dgvBookmark = new DataGridView();
             BookmarkID = new DataGridViewTextBoxColumn();
             Title = new DataGridViewTextBoxColumn();
@@ -182,18 +182,17 @@
             // tbxSearch
             // 
             tbxSearch.Dock = DockStyle.Fill;
-            tbxSearch.Font = new Font("Century Gothic", 11F);
+            tbxSearch.Font = new Font("Century Gothic", 15F);
             tbxSearch.Location = new Point(0, 0);
-            tbxSearch.Multiline = true;
             tbxSearch.Name = "tbxSearch";
-            tbxSearch.Size = new Size(300, 34);
+            tbxSearch.Size = new Size(300, 32);
             tbxSearch.TabIndex = 20;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = Color.FromArgb(5, 102, 141);
             btnSearch.Dock = DockStyle.Right;
-            btnSearch.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnSearch.FlatAppearance.BorderColor = Color.FromArgb(5, 102, 141);
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Century Gothic", 11F);
             btnSearch.ForeColor = Color.Transparent;
@@ -205,41 +204,44 @@
             btnSearch.TabIndex = 16;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // panel5
             // 
-            panel5.Controls.Add(tbxFilter);
-            panel5.Controls.Add(button5);
+            panel5.Controls.Add(cmbFilter);
+            panel5.Controls.Add(btnFilter);
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(467, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(458, 34);
             panel5.TabIndex = 1;
             // 
-            // tbxFilter
+            // cmbFilter
             // 
-            tbxFilter.Dock = DockStyle.Fill;
-            tbxFilter.Font = new Font("Century Gothic", 11F);
-            tbxFilter.Location = new Point(0, 0);
-            tbxFilter.Multiline = true;
-            tbxFilter.Name = "tbxFilter";
-            tbxFilter.Size = new Size(300, 34);
-            tbxFilter.TabIndex = 20;
+            cmbFilter.Dock = DockStyle.Fill;
+            cmbFilter.Font = new Font("Century Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbFilter.FormattingEnabled = true;
+            cmbFilter.Items.AddRange(new object[] { "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi (Science Fiction)", "Thriller", "Slice of Life", "Supernatural", "Psychological", "Historical", "Sports", "Crime", "Suspense" });
+            cmbFilter.Location = new Point(0, 0);
+            cmbFilter.Name = "cmbFilter";
+            cmbFilter.Size = new Size(300, 31);
+            cmbFilter.TabIndex = 19;
             // 
-            // button5
+            // btnFilter
             // 
-            button5.BackColor = Color.FromArgb(5, 102, 141);
-            button5.Dock = DockStyle.Right;
-            button5.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Century Gothic", 11F);
-            button5.ForeColor = Color.Transparent;
-            button5.Location = new Point(300, 0);
-            button5.Name = "button5";
-            button5.Size = new Size(158, 34);
-            button5.TabIndex = 18;
-            button5.Text = "Filter";
-            button5.UseVisualStyleBackColor = false;
+            btnFilter.BackColor = Color.FromArgb(5, 102, 141);
+            btnFilter.Dock = DockStyle.Right;
+            btnFilter.FlatAppearance.BorderColor = Color.FromArgb(5, 102, 141);
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.Font = new Font("Century Gothic", 11F);
+            btnFilter.ForeColor = Color.Transparent;
+            btnFilter.Location = new Point(300, 0);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(158, 34);
+            btnFilter.TabIndex = 18;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = false;
+            btnFilter.Click += btnFilter_Click;
             // 
             // dgvBookmark
             // 
@@ -249,41 +251,42 @@
             dgvBookmark.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBookmark.BackgroundColor = Color.FromArgb(252, 204, 197);
             dgvBookmark.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(252, 204, 197);
-            dataGridViewCellStyle7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(252, 204, 197);
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBookmark.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { BookmarkID, Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle8.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle2;
             dgvBookmark.Dock = DockStyle.Fill;
             dgvBookmark.GridColor = Color.Black;
             dgvBookmark.Location = new Point(0, 100);
             dgvBookmark.Name = "dgvBookmark";
             dgvBookmark.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvBookmark.RowHeadersVisible = false;
             dgvBookmark.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBookmark.Size = new Size(928, 465);
             dgvBookmark.TabIndex = 13;
+            dgvBookmark.MouseClick += dgvBookmark_MouseClick;
             // 
             // BookmarkID
             // 
@@ -367,7 +370,6 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBookmark).EndInit();
             ResumeLayout(false);
         }
@@ -388,8 +390,7 @@
         private Panel panel4;
         private Panel panel5;
         private TextBox tbxSearch;
-        private TextBox tbxFilter;
-        private Button button5;
+        private Button btnFilter;
         private DataGridViewTextBoxColumn BookmarkID;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Genre;
@@ -399,5 +400,6 @@
         private DataGridViewTextBoxColumn PageNumber;
         private DataGridViewTextBoxColumn Author;
         private DataGridViewTextBoxColumn DateAdded;
+        private ComboBox cmbFilter;
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace NoteWorthy
 {
     public partial class bookmarkPanel : basePanel
     {
+        private DataTable dt;
         public bookmarkPanel()
         {
             InitializeComponent();
@@ -21,28 +23,38 @@ namespace NoteWorthy
 
             this.BringToFront();
         }
-
-        private void bookmarkPanel_Load(object sender, EventArgs e)
+        private void clearSelection()
         {
-            LoadBookmarks();
             this.BeginInvoke(new Action(() =>
             {
                 dgvBookmark.ClearSelection();
                 dgvBookmark.CurrentCell = null;
             }));
         }
+        private void dgvBookmark_MouseClick(object sender, MouseEventArgs e)
+        {
+            DataGridView.HitTestInfo hit = dgvBookmark.HitTest(e.X, e.Y);
+            if (hit.Type == DataGridViewHitTestType.None)
+            {
+                dgvBookmark.ClearSelection();
+            }
+        }
+        private void bookmarkPanel_Load(object sender, EventArgs e)
+        {
+            LoadBookmarks();
+            clearSelection();
+        }
 
         public void LoadBookmarks()
         {
-            DataTable dt = dbHelper.GetBookmarks(); // Declare dt here
-
-            // Debugging: Check if data is retrieved
+            dt = dbHelper.GetBookmarks();
             dgvBookmark.DataSource = dt;
         }
         private void btnNewbookmark_Click(object sender, EventArgs e)
         {
             addBookmarkUI bookmarkUI = new addBookmarkUI();
             bookmarkUI.ShowDialog();
+            clearSelection();
             LoadBookmarks();
         }
 
@@ -50,16 +62,15 @@ namespace NoteWorthy
         {
             if (dgvBookmark.SelectedRows.Count > 0)
             {
-                // Get the BookmarkID from the selected row (hidden column)
                 int bookmarkID = Convert.ToInt32(dgvBookmark.SelectedRows[0].Cells["BookmarkID"].Value);
-
-                // Ask for confirmation
                 DialogResult confirm = MessageBox.Show("Are you sure you want to delete this bookmark?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (confirm == DialogResult.Yes)
                 {
-                    dbHelper.DeleteBookmark(bookmarkID); // Call the delete method
-                    LoadBookmarks(); // Refresh DataGridView
+                    dbHelper.DeleteBookmark(bookmarkID);
+                    clearSelection();
+                    LoadBookmarks();
+
                 }
             }
             else
@@ -74,14 +85,55 @@ namespace NoteWorthy
             {
                 DataGridViewRow selectedRow = dgvBookmark.SelectedRows[0];
                 editBookmarkUI editForm = new editBookmarkUI(selectedRow);
-                if (editForm.ShowDialog() == DialogResult.OK) // Only refresh if successful
-                {
-                    LoadBookmarks(); // Refresh DataGridView
-                }
+                editForm.ShowDialog();
+                clearSelection();
+                LoadBookmarks();
             }
             else
             {
                 MessageBox.Show("Please select a bookmark to edit.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = tbxSearch.Text.Trim();
+            if (dt != null)
+            {
+                DataView dv = dt.DefaultView;
+
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    dv.RowFilter = $"Title LIKE '%{searchText}%'";
+                }
+                else
+                {
+                    dv.RowFilter = "";
+                }
+
+                dgvBookmark.DataSource = dv;
+                tbxSearch.Text = "";
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            string selectedGenre = cmbFilter.SelectedItem?.ToString(); // Get selected genre
+
+            if (dt != null)
+            {
+                DataView dv = dt.DefaultView;
+
+                if (!string.IsNullOrEmpty(selectedGenre) && selectedGenre != "All")
+                {
+                    dv.RowFilter = $"Genre = '{selectedGenre}'"; // Filter by genre
+                }
+                else
+                {
+                    dv.RowFilter = ""; // Reset filter if "All" is selected
+                }
+
+                dgvBookmark.DataSource = dv; // Update DataGridView
             }
         }
     }

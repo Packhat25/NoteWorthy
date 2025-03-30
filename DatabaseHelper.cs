@@ -125,7 +125,7 @@ namespace NoteWorthy
                 cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);
 
                 da = new OleDbDataAdapter(cmd);
-                da.Fill(dt); // Fill DataTable with results
+                da.Fill(dt);
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace NoteWorthy
             }
             finally
             {
-                myConn?.Close(); // Close connection to prevent issues
+                myConn?.Close();
             }
 
             return dt;
@@ -150,17 +150,17 @@ namespace NoteWorthy
 
                     using (OleDbCommand cmd = new OleDbCommand(query, myConn))
                     {
-                        cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);  // Match UserID
+                        cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);
                         cmd.Parameters.AddWithValue("@title", title);
-                        cmd.Parameters.AddWithValue("@genre", genre);    // Added Genre
+                        cmd.Parameters.AddWithValue("@genre", genre);
                         cmd.Parameters.AddWithValue("@volume", volume);
                         cmd.Parameters.AddWithValue("@edition", edition);
                         cmd.Parameters.AddWithValue("@chapter", chapter);
                         cmd.Parameters.AddWithValue("@pageNumber", pageNum);
                         cmd.Parameters.AddWithValue("@author", author);
-                        cmd.Parameters.AddWithValue("@dateAdded", DateTime.Now.Date); // Corrected DateAdded
+                        cmd.Parameters.AddWithValue("@dateAdded", DateTime.Now.Date);
 
-                        int result = cmd.ExecuteNonQuery(); // Store result
+                        int result = cmd.ExecuteNonQuery();
 
                         if (result > 0)
                         {
@@ -208,7 +208,7 @@ namespace NoteWorthy
                 MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public bool UpdateBookmark(int bookmarkID, string title, string genre, string volume, string edition, string chapter, string pageNum, string author)
+        public void UpdateBookmark(int bookmarkID, string title, string genre, string volume, string edition, string chapter, string pageNum, string author)
         {
             try
             {
@@ -230,14 +230,20 @@ namespace NoteWorthy
                         cmd.Parameters.AddWithValue("@bookmarkID", bookmarkID);
 
                         int result = cmd.ExecuteNonQuery();
-                        return result > 0; // True if at least one row was updated
+                        if(result>0)
+                            {
+                                MessageBox.Show("Bookmark updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        else
+                            {
+                                MessageBox.Show("Failed to update bookmark.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
     }

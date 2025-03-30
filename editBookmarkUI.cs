@@ -12,8 +12,6 @@ namespace NoteWorthy
 {
     public partial class editBookmarkUI : BaseForm
     {
-        private int bookmarkID;
-
         public editBookmarkUI(DataGridViewRow selectedRow)
         {
             InitializeComponent();
@@ -34,7 +32,7 @@ namespace NoteWorthy
         {
 
         }
-
+        private int bookmarkID;
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -42,7 +40,7 @@ namespace NoteWorthy
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-          
+
             string title = tbxTitle.Text.Trim();
             string genre = tbxGenre.Text.Trim();
             string volume = tbxVolume.Value.ToString();
@@ -51,19 +49,28 @@ namespace NoteWorthy
             string pageNum = tbxPagenum.Value.ToString();
             string author = tbxAuthor.Text.Trim();
 
-            bool success = dbHelper.UpdateBookmark(bookmarkID, title, genre, volume, edition, chapter, pageNum, author);
+            dbHelper.UpdateBookmark(bookmarkID, title, genre, volume, edition, chapter, pageNum, author);
+            this.Close();
+        }
 
-            if (success)
-            {
-                MessageBox.Show("Bookmark updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void btnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.Green;
+        }
 
-                this.DialogResult = DialogResult.OK; // ✅ Ensure this is set
-                this.Close(); // ✅ Close after updating
-            }
-            else
-            {
-                MessageBox.Show("Failed to update bookmark.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private void btnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.FromArgb(5, 102, 141);
+        }
+
+        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.Red;
+        }
+
+        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.FromArgb(5, 102, 141);
         }
     }
 }
