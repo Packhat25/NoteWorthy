@@ -211,8 +211,9 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = Color.FromArgb(0, 192, 0);
-            series1.Font = new Font("Colonna MT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            series1.LabelBackColor = Color.FromArgb(252, 204, 197);
+            series1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            series1.IsValueShownAsLabel = true;
+            series1.LabelBackColor = Color.Transparent;
             series1.Legend = "Legend1";
             series1.Name = "Genres";
             chartGenre.Series.Add(series1);

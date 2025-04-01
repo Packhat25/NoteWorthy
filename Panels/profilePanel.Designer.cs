@@ -85,9 +85,9 @@
             // panel3
             // 
             panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(55, 532);
+            panel3.Location = new Point(55, 574);
             panel3.Name = "panel3";
-            panel3.Size = new Size(818, 100);
+            panel3.Size = new Size(818, 58);
             panel3.TabIndex = 16;
             // 
             // panel6
@@ -95,16 +95,16 @@
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(55, 60);
             panel6.Name = "panel6";
-            panel6.Size = new Size(818, 100);
+            panel6.Size = new Size(818, 48);
             panel6.TabIndex = 17;
             // 
             // panel7
             // 
             panel7.Controls.Add(panel1);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(55, 160);
+            panel7.Location = new Point(55, 108);
             panel7.Name = "panel7";
-            panel7.Size = new Size(818, 372);
+            panel7.Size = new Size(818, 466);
             panel7.TabIndex = 18;
             // 
             // panel1
@@ -114,7 +114,7 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(lblUserName);
-            panel1.Location = new Point(6, 33);
+            panel1.Location = new Point(0, 0);
             panel1.MinimumSize = new Size(357, 228);
             panel1.Name = "panel1";
             panel1.Size = new Size(357, 229);

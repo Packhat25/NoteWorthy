@@ -44,6 +44,7 @@ namespace NoteWorthy
             chartGenre.Series["Genres"].Label = "#PERCENT{P1} (#VALY)";
             //chart design
             chartGenre.Series["Genres"].Font = new Font("Century Gothic", 11, FontStyle.Regular);
+            chartGenre.Series["Genres"].IsValueShownAsLabel = true;            
             foreach (var genre in genreCounts)
             {
                 var dataPoint = chartGenre.Series["Genres"].Points.AddXY(genre.Key, genre.Value);
