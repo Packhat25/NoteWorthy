@@ -28,28 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
-            panel4 = new Panel();
-            label4 = new Label();
             panel1 = new Panel();
             panel3 = new Panel();
             panel12 = new Panel();
             label2 = new Label();
             panel5 = new Panel();
             lblWelcome = new Label();
-            panel6 = new Panel();
+            label4 = new Label();
             panel8 = new Panel();
+            panel4 = new Panel();
+            basePanel1 = new basePanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            chartGenre = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panel6 = new Panel();
             panel7 = new Panel();
-            panel13 = new Panel();
-            label5 = new Label();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel12.SuspendLayout();
             panel5.SuspendLayout();
+            panel4.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartGenre).BeginInit();
             panel7.SuspendLayout();
-            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -73,32 +78,12 @@
             label1.TabIndex = 0;
             label1.Text = "Home";
             // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(169, 211, 255);
-            panel4.Controls.Add(label4);
-            panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 486);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(928, 146);
-            panel4.TabIndex = 13;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 20.25F);
-            label4.Location = new Point(15, 12);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 33);
-            label4.TabIndex = 1;
-            label4.Text = "Analytics";
-            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(873, 60);
             panel1.Name = "panel1";
-            panel1.Size = new Size(55, 426);
+            panel1.Size = new Size(55, 572);
             panel1.TabIndex = 14;
             // 
             // panel3
@@ -107,7 +92,7 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 60);
             panel3.Name = "panel3";
-            panel3.Size = new Size(55, 426);
+            panel3.Size = new Size(55, 572);
             panel3.TabIndex = 15;
             // 
             // panel12
@@ -132,6 +117,7 @@
             // panel5
             // 
             panel5.Controls.Add(lblWelcome);
+            panel5.Controls.Add(label4);
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(55, 60);
             panel5.Name = "panel5";
@@ -149,13 +135,15 @@
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome, <User>";
             // 
-            // panel6
+            // label4
             // 
-            panel6.Dock = DockStyle.Bottom;
-            panel6.Location = new Point(55, 466);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(818, 20);
-            panel6.TabIndex = 17;
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 20.25F);
+            label4.Location = new Point(3, 38);
+            label4.Name = "label4";
+            label4.Size = new Size(132, 33);
+            label4.TabIndex = 1;
+            label4.Text = "Analytics";
             // 
             // panel8
             // 
@@ -165,80 +153,137 @@
             panel8.Size = new Size(818, 20);
             panel8.TabIndex = 19;
             // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(169, 211, 255);
+            panel4.Controls.Add(basePanel1);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel4.Location = new Point(55, 536);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(818, 96);
+            panel4.TabIndex = 21;
+            // 
+            // basePanel1
+            // 
+            basePanel1.Location = new Point(8, 141);
+            basePanel1.Name = "basePanel1";
+            basePanel1.Size = new Size(8, 9);
+            basePanel1.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
+            tableLayoutPanel1.Controls.Add(chartGenre, 1, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tableLayoutPanel1.Size = new Size(818, 362);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
+            // chartGenre
+            // 
+            chartGenre.BackColor = Color.FromArgb(252, 204, 197);
+            chartGenre.BackgroundImageLayout = ImageLayout.None;
+            chartArea1.BackColor = Color.FromArgb(252, 204, 197);
+            chartArea1.Name = "ChartArea1";
+            chartGenre.ChartAreas.Add(chartArea1);
+            chartGenre.Dock = DockStyle.Fill;
+            legend1.BackColor = Color.FromArgb(91, 72, 87);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new Font("Century Gothic", 8F);
+            legend1.ForeColor = Color.White;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            chartGenre.Legends.Add(legend1);
+            chartGenre.Location = new Point(23, 21);
+            chartGenre.Name = "chartGenre";
+            chartGenre.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = Color.FromArgb(0, 192, 0);
+            series1.Font = new Font("Colonna MT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            series1.LabelBackColor = Color.FromArgb(252, 204, 197);
+            series1.Legend = "Legend1";
+            series1.Name = "Genres";
+            chartGenre.Series.Add(series1);
+            chartGenre.Size = new Size(771, 319);
+            chartGenre.TabIndex = 3;
+            chartGenre.TabStop = false;
+            chartGenre.Text = "chart1";
+            // 
+            // panel6
+            // 
+            panel6.Dock = DockStyle.Bottom;
+            panel6.Location = new Point(55, 516);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(818, 20);
+            panel6.TabIndex = 22;
+            // 
             // panel7
             // 
-            panel7.Controls.Add(panel13);
+            panel7.BackColor = Color.FromArgb(169, 211, 255);
+            panel7.Controls.Add(tableLayoutPanel1);
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(55, 154);
             panel7.Name = "panel7";
-            panel7.Size = new Size(818, 312);
-            panel7.TabIndex = 20;
-            // 
-            // panel13
-            // 
-            panel13.BackColor = Color.FromArgb(169, 211, 255);
-            panel13.Controls.Add(label5);
-            panel13.Dock = DockStyle.Fill;
-            panel13.Location = new Point(0, 0);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(818, 312);
-            panel13.TabIndex = 18;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 20.25F);
-            label5.Location = new Point(10, 10);
-            label5.Name = "label5";
-            label5.Size = new Size(232, 33);
-            label5.TabIndex = 0;
-            label5.Text = "Recently Added";
+            panel7.Size = new Size(818, 362);
+            panel7.TabIndex = 23;
             // 
             // homePanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel7);
-            Controls.Add(panel8);
             Controls.Add(panel6);
+            Controls.Add(panel4);
+            Controls.Add(panel8);
             Controls.Add(panel5);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Controls.Add(panel4);
             Controls.Add(panel2);
             Name = "homePanel";
             Size = new Size(928, 632);
             Load += homePanel_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel4.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartGenre).EndInit();
             panel7.ResumeLayout(false);
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private Panel panel2;
         private Label label1;
-        private Panel panel4;
-        private Label label4;
         private Panel panel1;
         private Panel panel3;
         private Panel panel5;
-        private Panel panel6;
         private Panel panel12;
         private Label label2;
         private Label lblWelcome;
         private Panel panel8;
+        private Panel panel4;
+        private Label label4;
+        private Panel panel6;
         private Panel panel7;
-        private Panel panel13;
-        private Label label5;
+        private basePanel basePanel1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGenre;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

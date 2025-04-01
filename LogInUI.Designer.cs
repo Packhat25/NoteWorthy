@@ -37,15 +37,15 @@
             label2 = new Label();
             label3 = new Label();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             btnExit = new Button();
             animateTimer = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // tbxPassword
@@ -69,7 +69,7 @@
             tbxUsername.Location = new Point(331, 250);
             tbxUsername.Name = "tbxUsername";
             tbxUsername.Size = new Size(293, 26);
-            tbxUsername.TabIndex = 3;
+            tbxUsername.TabIndex = 1;
             // 
             // btnLogIn
             // 
@@ -81,7 +81,7 @@
             btnLogIn.Location = new Point(374, 348);
             btnLogIn.Name = "btnLogIn";
             btnLogIn.Size = new Size(213, 34);
-            btnLogIn.TabIndex = 5;
+            btnLogIn.TabIndex = 3;
             btnLogIn.Text = "Log In";
             btnLogIn.UseVisualStyleBackColor = false;
             btnLogIn.Click += btnLogIn_Click;
@@ -92,7 +92,7 @@
             linklblRegister.Location = new Point(510, 455);
             linklblRegister.Name = "linklblRegister";
             linklblRegister.Size = new Size(77, 15);
-            linklblRegister.TabIndex = 6;
+            linklblRegister.TabIndex = 4;
             linklblRegister.TabStop = true;
             linklblRegister.Text = "Register Here";
             linklblRegister.LinkClicked += linklblRegister_LinkClicked;
@@ -136,6 +136,16 @@
             panel1.Size = new Size(280, 478);
             panel1.TabIndex = 18;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImage = Properties.Resources.NoteWorthyIcon;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox4.Location = new Point(-25, 58);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(324, 289);
+            pictureBox4.TabIndex = 26;
+            pictureBox4.TabStop = false;
+            // 
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -177,16 +187,6 @@
             pictureBox2.TabIndex = 25;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = Properties.Resources.NoteWorthyIcon;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(-25, 58);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(324, 289);
-            pictureBox4.TabIndex = 26;
-            pictureBox4.TabStop = false;
-            // 
             // LogInUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,9 +215,9 @@
             Text = "Bookmark";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

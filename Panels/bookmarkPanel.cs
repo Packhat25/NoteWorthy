@@ -20,6 +20,7 @@ namespace NoteWorthy
             dgvBookmark.AutoGenerateColumns = false;
             dgvBookmark.EnableHeadersVisualStyles = false;
             dgvBookmark.Columns["BookmarkID"].Visible = false;
+            cmbFilter.SelectedIndex= 0;
 
             this.BringToFront();
         }
@@ -97,41 +98,37 @@ namespace NoteWorthy
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchText = tbxSearch.Text.Trim();
-            if (dt != null)
-            {
-                DataView dv = dt.DefaultView;
-
-                if (!string.IsNullOrEmpty(searchText))
-                {
-                    dv.RowFilter = $"Title LIKE '%{searchText}%'";
-                }
-                else
-                {
-                    dv.RowFilter = "";
-                }
-
-                dgvBookmark.DataSource = dv;
-                tbxSearch.Text = "";
-            }
+            ApplyFilters();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            string selectedGenre = cmbFilter.SelectedItem?.ToString(); // Get selected genre
-
-            if (dt != null)
+            ApplyFilters();
+        }
+        private void ApplyFilters()
+        {
+            if (dt != null) // Ensure DataTable is loaded
             {
                 DataView dv = dt.DefaultView;
+                string searchText = tbxSearch.Text.Trim();
+                string selectedGenre = cmbFilter.SelectedItem?.ToString();
 
+                List<string> filters = new List<string>();
+
+                // Apply title search filter
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    filters.Add($"Title LIKE '%{searchText}%'");
+                }
+
+                // Apply genre filter (ignore if "All" is selected)
                 if (!string.IsNullOrEmpty(selectedGenre) && selectedGenre != "All")
                 {
-                    dv.RowFilter = $"Genre = '{selectedGenre}'"; // Filter by genre
+                    filters.Add($"Genre = '{selectedGenre}'");
                 }
-                else
-                {
-                    dv.RowFilter = ""; // Reset filter if "All" is selected
-                }
+
+                // Combine filters with AND condition
+                dv.RowFilter = string.Join(" AND ", filters);
 
                 dgvBookmark.DataSource = dv; // Update DataGridView
             }

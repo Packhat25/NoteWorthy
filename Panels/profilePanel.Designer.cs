@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            panel2 = new Panel();
+            panel5 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            panel6 = new Panel();
+            panel7 = new Panel();
             panel1 = new Panel();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             label4 = new Label();
             lblUserName = new Label();
-            panel2 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel7.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -52,6 +56,57 @@
             label1.TabIndex = 0;
             label1.Text = "Profile";
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(5, 102, 141);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(928, 60);
+            panel2.TabIndex = 7;
+            // 
+            // panel5
+            // 
+            panel5.Dock = DockStyle.Left;
+            panel5.Location = new Point(0, 60);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(55, 572);
+            panel5.TabIndex = 13;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(873, 60);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(55, 572);
+            panel4.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(55, 532);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(818, 100);
+            panel3.TabIndex = 16;
+            // 
+            // panel6
+            // 
+            panel6.Dock = DockStyle.Top;
+            panel6.Location = new Point(55, 60);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(818, 100);
+            panel6.TabIndex = 17;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(panel1);
+            panel7.Dock = DockStyle.Fill;
+            panel7.Location = new Point(55, 160);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(818, 372);
+            panel7.TabIndex = 18;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(169, 211, 255);
@@ -59,10 +114,10 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(lblUserName);
-            panel1.Location = new Point(15, 75);
+            panel1.Location = new Point(6, 33);
             panel1.MinimumSize = new Size(357, 228);
             panel1.Name = "panel1";
-            panel1.Size = new Size(361, 229);
+            panel1.Size = new Size(357, 229);
             panel1.TabIndex = 6;
             // 
             // textBox2
@@ -103,79 +158,39 @@
             lblUserName.TabIndex = 3;
             lblUserName.Text = "Username:";
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(5, 102, 141);
-            panel2.Controls.Add(label1);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(928, 60);
-            panel2.TabIndex = 7;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.BackColor = Color.FromArgb(5, 102, 141);
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9F);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(101, 487);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(142, 31);
-            button1.TabIndex = 9;
-            button1.Text = "Delete Account";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.BackColor = Color.FromArgb(5, 102, 141);
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 9F);
-            button2.ForeColor = Color.White;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(101, 412);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(142, 31);
-            button2.TabIndex = 10;
-            button2.Text = "Change Password";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // profilePanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(panel7);
+            Controls.Add(panel6);
+            Controls.Add(panel3);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
             Controls.Add(panel2);
-            Controls.Add(button2);
-            Controls.Add(panel1);
             Name = "profilePanel";
             Size = new Size(928, 632);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label label1;
-        private Panel panel1;
-        private Label label4;
-        private Label lblUserName;
         private Panel panel2;
+        private Panel panel5;
+        private Panel panel4;
+        private Panel panel3;
+        private Panel panel6;
+        private Panel panel7;
+        private Panel panel1;
         private TextBox textBox2;
         private TextBox textBox1;
-        private Button button1;
-        private Button button2;
+        private Label label4;
+        private Label lblUserName;
     }
 }

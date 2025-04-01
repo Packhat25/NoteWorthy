@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             tbxUsername = new TextBox();
             tbxPassword = new TextBox();
             tbxConfirmPass = new TextBox();
@@ -44,12 +45,11 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -62,6 +62,16 @@
             panel1.Size = new Size(280, 478);
             panel1.TabIndex = 3;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImage = Properties.Resources.NoteWorthyIcon;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox4.Location = new Point(-25, 58);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(324, 289);
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            // 
             // tbxUsername
             // 
             tbxUsername.BackColor = Color.FromArgb(169, 211, 255);
@@ -70,7 +80,7 @@
             tbxUsername.Location = new Point(337, 220);
             tbxUsername.Name = "tbxUsername";
             tbxUsername.Size = new Size(346, 26);
-            tbxUsername.TabIndex = 6;
+            tbxUsername.TabIndex = 1;
             // 
             // tbxPassword
             // 
@@ -80,7 +90,7 @@
             tbxPassword.Location = new Point(337, 278);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.Size = new Size(346, 26);
-            tbxPassword.TabIndex = 7;
+            tbxPassword.TabIndex = 2;
             tbxPassword.UseSystemPasswordChar = true;
             // 
             // tbxConfirmPass
@@ -91,7 +101,7 @@
             tbxConfirmPass.Location = new Point(337, 336);
             tbxConfirmPass.Name = "tbxConfirmPass";
             tbxConfirmPass.Size = new Size(346, 26);
-            tbxConfirmPass.TabIndex = 8;
+            tbxConfirmPass.TabIndex = 3;
             tbxConfirmPass.UseSystemPasswordChar = true;
             // 
             // label1
@@ -134,7 +144,7 @@
             btnRegister.Location = new Point(378, 396);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(213, 34);
-            btnRegister.TabIndex = 12;
+            btnRegister.TabIndex = 4;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
@@ -154,7 +164,7 @@
             linklblLogin.Location = new Point(523, 454);
             linklblLogin.Name = "linklblLogin";
             linklblLogin.Size = new Size(68, 15);
-            linklblLogin.TabIndex = 13;
+            linklblLogin.TabIndex = 5;
             linklblLogin.TabStop = true;
             linklblLogin.Text = "Log in Here";
             linklblLogin.LinkClicked += linklblLogin_LinkClicked;
@@ -170,7 +180,7 @@
             btnExit.Location = new Point(670, 2);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(30, 30);
-            btnExit.TabIndex = 21;
+            btnExit.TabIndex = 6;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click_1;
             // 
@@ -210,16 +220,6 @@
             pictureBox3.TabIndex = 28;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = Properties.Resources.NoteWorthyIcon;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(-25, 58);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(324, 289);
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
-            // 
             // RegisterUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,10 +249,10 @@
             Text = "Form1";
             Load += RegisterUI_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

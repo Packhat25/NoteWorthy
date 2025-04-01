@@ -219,9 +219,10 @@
             // cmbFilter
             // 
             cmbFilter.Dock = DockStyle.Fill;
+            cmbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFilter.Font = new Font("Century Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbFilter.FormattingEnabled = true;
-            cmbFilter.Items.AddRange(new object[] { "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi (Science Fiction)", "Thriller", "Slice of Life", "Supernatural", "Psychological", "Historical", "Sports", "Crime", "Suspense" });
+            cmbFilter.Items.AddRange(new object[] { "All", "Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Psychological", "Romance", "Sci-Fi (Science Fiction)", "Slice of Life", "Sports", "Supernatural", "Suspense", "Thriller" });
             cmbFilter.Location = new Point(0, 0);
             cmbFilter.Name = "cmbFilter";
             cmbFilter.Size = new Size(300, 31);
@@ -239,7 +240,7 @@
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 18;
-            btnFilter.Text = "Filter";
+            btnFilter.Text = "Genre Filter";
             btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
