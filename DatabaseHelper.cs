@@ -246,31 +246,26 @@ namespace NoteWorthy
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public Dictionary<string, int> GetGenreDistribution()
+        public DateTime? GetAccountCreationDate(int userID)
         {
-            Dictionary<string, int> genreCounts = new Dictionary<string, int>();
-
-            string query = "SELECT Genre, COUNT(*) AS Count FROM Bookmarks WHERE UserID = ? GROUP BY Genre";
+            string query = "SELECT DateCreated FROM Users WHERE UserID = ?";
 
             using (OleDbConnection myConn = new OleDbConnection(ConnectionString))
             {
                 myConn.Open();
                 using (OleDbCommand cmd = new OleDbCommand(query, myConn))
                 {
-                    cmd.Parameters.AddWithValue("@UserID", SessionManager.CurrentUserID);
-                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && DateTime.TryParse(result.ToString(), out DateTime dateCreated))
                     {
-                        while (reader.Read())
-                        {
-                            string genre = reader["Genre"].ToString();
-                            int count = Convert.ToInt32(reader["Count"]);
-                            genreCounts[genre] = count;
-                        }
+                        return dateCreated;
                     }
                 }
             }
 
-            return genreCounts;
+            return null; // Return null if no date is found
         }
     }
 }

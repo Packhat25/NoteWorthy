@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -44,7 +41,6 @@
             panel4 = new Panel();
             basePanel1 = new basePanel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            chartGenre = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel6 = new Panel();
             panel7 = new Panel();
             panel2.SuspendLayout();
@@ -52,8 +48,6 @@
             panel12.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chartGenre).BeginInit();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -178,7 +172,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
-            tableLayoutPanel1.Controls.Add(chartGenre, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -189,38 +182,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.Size = new Size(818, 362);
             tableLayoutPanel1.TabIndex = 4;
-            // 
-            // chartGenre
-            // 
-            chartGenre.BackColor = Color.FromArgb(252, 204, 197);
-            chartGenre.BackgroundImageLayout = ImageLayout.None;
-            chartArea1.BackColor = Color.FromArgb(252, 204, 197);
-            chartArea1.Name = "ChartArea1";
-            chartGenre.ChartAreas.Add(chartArea1);
-            chartGenre.Dock = DockStyle.Fill;
-            legend1.BackColor = Color.FromArgb(91, 72, 87);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new Font("Century Gothic", 8F);
-            legend1.ForeColor = Color.White;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            chartGenre.Legends.Add(legend1);
-            chartGenre.Location = new Point(23, 21);
-            chartGenre.Name = "chartGenre";
-            chartGenre.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = Color.FromArgb(0, 192, 0);
-            series1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            series1.IsValueShownAsLabel = true;
-            series1.LabelBackColor = Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Genres";
-            chartGenre.Series.Add(series1);
-            chartGenre.Size = new Size(771, 319);
-            chartGenre.TabIndex = 3;
-            chartGenre.TabStop = false;
-            chartGenre.Text = "chart1";
             // 
             // panel6
             // 
@@ -263,8 +224,6 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chartGenre).EndInit();
             panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -284,7 +243,6 @@
         private Panel panel6;
         private Panel panel7;
         private basePanel basePanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartGenre;
         private TableLayoutPanel tableLayoutPanel1;
     }
 }
