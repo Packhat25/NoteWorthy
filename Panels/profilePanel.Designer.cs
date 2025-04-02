@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             label1 = new Label();
             panel2 = new Panel();
             panel5 = new Panel();
@@ -39,8 +39,6 @@
             panel6 = new Panel();
             panel7 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            chartGenre = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            label2 = new Label();
             panel8 = new Panel();
             panelInfo = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -52,16 +50,18 @@
             label4 = new Label();
             panel10 = new Panel();
             panel9 = new Panel();
-            label3 = new Label();
+            lblAccountinfo = new Label();
+            chartGenre = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            label2 = new Label();
             panel1 = new Panel();
             panel2.SuspendLayout();
             panel7.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chartGenre).BeginInit();
             panel8.SuspendLayout();
             panelInfo.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartGenre).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -129,14 +129,15 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.Controls.Add(chartGenre, 2, 1);
-            tableLayoutPanel1.Controls.Add(label2, 2, 0);
+            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.41726613F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 43.1654663F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.83453226F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 43.16547F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3.41726613F));
             tableLayoutPanel1.Controls.Add(panel8, 1, 1);
+            tableLayoutPanel1.Controls.Add(chartGenre, 3, 1);
+            tableLayoutPanel1.Controls.Add(label2, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -147,65 +148,14 @@
             tableLayoutPanel1.Size = new Size(818, 418);
             tableLayoutPanel1.TabIndex = 10;
             // 
-            // chartGenre
-            // 
-            chartGenre.BackColor = Color.FromArgb(5, 102, 141);
-            chartGenre.BackgroundImageLayout = ImageLayout.None;
-            chartArea1.BackColor = Color.FromArgb(252, 204, 197);
-            chartArea1.Name = "ChartArea1";
-            chartGenre.ChartAreas.Add(chartArea1);
-            chartGenre.Dock = DockStyle.Fill;
-            legend1.Alignment = StringAlignment.Center;
-            legend1.AutoFitMinFontSize = 11;
-            legend1.BackColor = Color.FromArgb(91, 72, 87);
-            legend1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            legend1.BorderWidth = 2;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new Font("Century Gothic", 11F);
-            legend1.ForeColor = Color.White;
-            legend1.InterlacedRowsColor = Color.FromArgb(169, 211, 255);
-            legend1.IsEquallySpacedItems = true;
-            legend1.IsTextAutoFit = false;
-            legend1.MaximumAutoSize = 70F;
-            legend1.Name = "Legend1";
-            chartGenre.Legends.Add(legend1);
-            chartGenre.Location = new Point(411, 23);
-            chartGenre.Name = "chartGenre";
-            chartGenre.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = Color.FromArgb(0, 192, 0);
-            series1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            series1.IsValueShownAsLabel = true;
-            series1.LabelBackColor = Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Genres";
-            chartGenre.Series.Add(series1);
-            chartGenre.Size = new Size(362, 370);
-            chartGenre.TabIndex = 7;
-            chartGenre.TabStop = false;
-            chartGenre.Text = "chart1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(411, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(362, 20);
-            label2.TabIndex = 8;
-            label2.Text = "Genre Distribution";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // panel8
             // 
             panel8.Controls.Add(panelInfo);
             panel8.Controls.Add(panel9);
             panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(43, 23);
+            panel8.Location = new Point(30, 23);
             panel8.Name = "panel8";
-            panel8.Size = new Size(362, 370);
+            panel8.Size = new Size(347, 370);
             panel8.TabIndex = 9;
             // 
             // panelInfo
@@ -216,7 +166,7 @@
             panelInfo.Dock = DockStyle.Fill;
             panelInfo.Location = new Point(0, 35);
             panelInfo.Name = "panelInfo";
-            panelInfo.Size = new Size(362, 335);
+            panelInfo.Size = new Size(347, 335);
             panelInfo.TabIndex = 9;
             // 
             // tableLayoutPanel2
@@ -238,7 +188,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
-            tableLayoutPanel2.Size = new Size(362, 320);
+            tableLayoutPanel2.Size = new Size(347, 320);
             tableLayoutPanel2.TabIndex = 14;
             // 
             // lblTotalBookmarks
@@ -246,10 +196,10 @@
             lblTotalBookmarks.AutoSize = true;
             lblTotalBookmarks.Dock = DockStyle.Fill;
             lblTotalBookmarks.Font = new Font("Century Gothic", 12F);
-            lblTotalBookmarks.Location = new Point(184, 64);
+            lblTotalBookmarks.Location = new Point(176, 64);
             lblTotalBookmarks.Name = "lblTotalBookmarks";
             lblTotalBookmarks.RightToLeft = RightToLeft.Yes;
-            lblTotalBookmarks.Size = new Size(175, 32);
+            lblTotalBookmarks.Size = new Size(168, 32);
             lblTotalBookmarks.TabIndex = 17;
             lblTotalBookmarks.Text = "<Total Bookmarks>";
             lblTotalBookmarks.TextAlign = ContentAlignment.MiddleRight;
@@ -261,7 +211,7 @@
             label6.Font = new Font("Century Gothic", 12F);
             label6.Location = new Point(3, 64);
             label6.Name = "label6";
-            label6.Size = new Size(175, 32);
+            label6.Size = new Size(167, 32);
             label6.TabIndex = 16;
             label6.Text = "Total Bookmarks:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -271,10 +221,10 @@
             lblDateCreated.AutoSize = true;
             lblDateCreated.Dock = DockStyle.Fill;
             lblDateCreated.Font = new Font("Century Gothic", 12F);
-            lblDateCreated.Location = new Point(184, 32);
+            lblDateCreated.Location = new Point(176, 32);
             lblDateCreated.Name = "lblDateCreated";
             lblDateCreated.RightToLeft = RightToLeft.Yes;
-            lblDateCreated.Size = new Size(175, 32);
+            lblDateCreated.Size = new Size(168, 32);
             lblDateCreated.TabIndex = 15;
             lblDateCreated.Text = "<Date>";
             lblDateCreated.TextAlign = ContentAlignment.MiddleRight;
@@ -286,7 +236,7 @@
             label5.Font = new Font("Century Gothic", 12F);
             label5.Location = new Point(3, 32);
             label5.Name = "label5";
-            label5.Size = new Size(175, 32);
+            label5.Size = new Size(167, 32);
             label5.TabIndex = 14;
             label5.Text = "Date joined :";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -296,10 +246,10 @@
             tbxUsername.AutoSize = true;
             tbxUsername.Dock = DockStyle.Fill;
             tbxUsername.Font = new Font("Century Gothic", 12F);
-            tbxUsername.Location = new Point(184, 0);
+            tbxUsername.Location = new Point(176, 0);
             tbxUsername.Name = "tbxUsername";
             tbxUsername.RightToLeft = RightToLeft.Yes;
-            tbxUsername.Size = new Size(175, 32);
+            tbxUsername.Size = new Size(168, 32);
             tbxUsername.TabIndex = 13;
             tbxUsername.Text = "<username>";
             tbxUsername.TextAlign = ContentAlignment.MiddleRight;
@@ -311,7 +261,7 @@
             label4.Font = new Font("Century Gothic", 12F);
             label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(175, 32);
+            label4.Size = new Size(167, 32);
             label4.TabIndex = 9;
             label4.Text = "Username:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -321,30 +271,81 @@
             panel10.Dock = DockStyle.Bottom;
             panel10.Location = new Point(0, 320);
             panel10.Name = "panel10";
-            panel10.Size = new Size(362, 15);
+            panel10.Size = new Size(347, 15);
             panel10.TabIndex = 11;
             // 
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(169, 211, 255);
-            panel9.Controls.Add(label3);
+            panel9.Controls.Add(lblAccountinfo);
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(362, 35);
+            panel9.Size = new Size(347, 35);
             panel9.TabIndex = 13;
             // 
-            // label3
+            // lblAccountinfo
             // 
-            label3.AutoSize = true;
-            label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Century Gothic", 17F, FontStyle.Bold);
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(242, 27);
-            label3.TabIndex = 18;
-            label3.Text = "Account Information";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            lblAccountinfo.AutoSize = true;
+            lblAccountinfo.Dock = DockStyle.Fill;
+            lblAccountinfo.Font = new Font("Century Gothic", 17F, FontStyle.Bold);
+            lblAccountinfo.Location = new Point(0, 0);
+            lblAccountinfo.Name = "lblAccountinfo";
+            lblAccountinfo.Size = new Size(242, 27);
+            lblAccountinfo.TabIndex = 18;
+            lblAccountinfo.Text = "Account Information";
+            lblAccountinfo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // chartGenre
+            // 
+            chartGenre.BackColor = Color.FromArgb(5, 102, 141);
+            chartGenre.BackgroundImageLayout = ImageLayout.None;
+            chartArea2.BackColor = Color.FromArgb(252, 204, 197);
+            chartArea2.Name = "ChartArea1";
+            chartGenre.ChartAreas.Add(chartArea2);
+            chartGenre.Dock = DockStyle.Fill;
+            legend2.Alignment = StringAlignment.Center;
+            legend2.AutoFitMinFontSize = 11;
+            legend2.BackColor = Color.FromArgb(91, 72, 87);
+            legend2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            legend2.BorderWidth = 2;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Font = new Font("Century Gothic", 11F);
+            legend2.ForeColor = Color.White;
+            legend2.InterlacedRowsColor = Color.FromArgb(169, 211, 255);
+            legend2.IsEquallySpacedItems = true;
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 70F;
+            legend2.Name = "Legend1";
+            chartGenre.Legends.Add(legend2);
+            chartGenre.Location = new Point(438, 23);
+            chartGenre.Name = "chartGenre";
+            chartGenre.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Color = Color.FromArgb(0, 192, 0);
+            series2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            series2.IsValueShownAsLabel = true;
+            series2.LabelBackColor = Color.Transparent;
+            series2.Legend = "Legend1";
+            series2.Name = "Genres";
+            chartGenre.Series.Add(series2);
+            chartGenre.Size = new Size(347, 370);
+            chartGenre.TabIndex = 7;
+            chartGenre.TabStop = false;
+            chartGenre.Text = "chart1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(438, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(347, 20);
+            label2.TabIndex = 10;
+            label2.Text = "Genre Distribution";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -372,13 +373,13 @@
             panel7.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chartGenre).EndInit();
             panel8.ResumeLayout(false);
             panelInfo.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chartGenre).EndInit();
             ResumeLayout(false);
         }
 
@@ -391,10 +392,8 @@
         private Panel panel3;
         private Panel panel6;
         private Panel panel7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartGenre;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
-        private Label label2;
         private Panel panelInfo;
         private Panel panel10;
         private Panel panel8;
@@ -402,10 +401,12 @@
         private Label lblTotalBookmarks;
         private Label label6;
         private Panel panel9;
-        private Label label3;
+        private Label lblAccountinfo;
         private Label label5;
         private Label lblDateCreated;
         private Label tbxUsername;
         private Label label4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGenre;
+        private Label label2;
     }
 }

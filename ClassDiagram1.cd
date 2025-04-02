@@ -1,112 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="NoteWorthy.Properties.Resources" Collapsed="true">
-    <Position X="10.75" Y="1.75" Width="1.5" />
+    <Position X="8.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACACBAAAAAAAGAAAgAABEAAQAQAAAQIAAIAAQAACAIA=</HashCode>
+      <HashCode>ACACBAAAAAAAGAAAgAABEAgQAQAAAQIAAIAAQAACAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.bookmarkPanel" Collapsed="true">
-    <Position X="8.5" Y="8.25" Width="1.5" />
+    <Position X="10.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAFAAAAKCAAACAAgYAAAgAgISQQAAAAA=</HashCode>
+      <HashCode>AACCgAAIACBAAFABgAKCQAACAAkAAFAgAwYQQQAAISY=</HashCode>
       <FileName>Panels\bookmarkPanel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.homePanel" Collapsed="true">
-    <Position X="10.25" Y="8.25" Width="1.5" />
+    <Position X="12.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAACAAABAAAACAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AEAAAIgQACAAABAAAACAEAAKAACAAAAAIAAAAUAEACA=</HashCode>
+      <FileName>Panels\homePanel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.profilePanel" Collapsed="true">
-    <Position X="8.5" Y="9.25" Width="1.5" />
+    <Position X="10.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAACAAABAAAACAAAACAAAYAAAAFAAAAQAAAAA=</HashCode>
+      <HashCode>AAgAgIAQBCAAABABAACAAAACAACAAEAQAAAAAwABACA=</HashCode>
+      <FileName>Panels\profilePanel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.settingsPanel" Collapsed="true">
-    <Position X="10.25" Y="9.25" Width="1.5" />
+    <Position X="12.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAAAAAAAAAAASAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAJAAAACAAAACgAAAAAAAAAAAASAAAAA=</HashCode>
+      <FileName>Panels\settingsPanel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.addBookmarkUI" Collapsed="true">
-    <Position X="2" Y="6.5" Width="1.5" />
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAICEAAFEAAACAAEAiAABBAAGQAACAAUEhAAA=</HashCode>
+      <HashCode>AAAAAAAgICAAAFEAAACAAEACAADBAAEQAACCA0EhIAA=</HashCode>
       <FileName>addBookmarkUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.BaseForm" Collapsed="true">
-    <Position X="4.25" Y="5" Width="1.5" />
+    <Position X="4.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAQAACAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAACAQAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BaseForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.DatabaseHelper" Collapsed="true">
-    <Position X="4" Y="1.75" Width="1.5" />
+    <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAgAAAAAAAAAAQIAAAABEAAAIAAAAAAgSACAAAQAAA=</HashCode>
+      <HashCode>AAAgBAACAAAAAAQIAEAAAEAAAIAAAAEAgSACAAAQAAA=</HashCode>
       <FileName>DatabaseHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.loadingScreen" Collapsed="true">
-    <Position X="13.25" Y="5" Width="1.5" />
+    <Position X="13.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAIAAACEAAACAAAAAAAAAAAAAQBAAAA=</HashCode>
       <FileName>loadingScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.LogInUI" Collapsed="true">
-    <Position X="6.5" Y="6.5" Width="1.5" />
+    <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAgAAEiAAABAAAACQAAAqACAAAkAAIIUAAQBAAAA=</HashCode>
       <FileName>LogInUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.MenuUI" Collapsed="true">
-    <Position X="8.75" Y="5" Width="1.5" />
+    <Position X="9" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gQAIIEIQCCAAAIAAmKCAoAASMCAAAACEApAABQABAAA=</HashCode>
+      <HashCode>gSBIIEIQCCAAAIAAmKCAoAASMCAAAACEApAgBQARAAA=</HashCode>
       <FileName>MenuUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.Program" Collapsed="true">
-    <Position X="8.5" Y="1.75" Width="1.5" />
+    <Position X="6.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.RegisterUI" Collapsed="true">
-    <Position X="4.25" Y="6.5" Width="1.5" />
+    <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAjAAAiAAARAAAACQQAACACAAAkAAIIEAAQBgAEA=</HashCode>
       <FileName>RegisterUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.SessionManager" Collapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
+    <Position X="4.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAEAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SessionManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.StartUpUI" Collapsed="true">
-    <Position X="11" Y="5" Width="1.5" />
+    <Position X="11.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAGAAECAAQAAAAACABBACCCAACAAAAgAAAAjgAEA=</HashCode>
       <FileName>StartUpUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Object" Collapsed="true">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="System.Windows.Forms.Form" Collapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />

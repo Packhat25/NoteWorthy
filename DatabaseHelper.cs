@@ -19,8 +19,8 @@ namespace NoteWorthy
         OleDbDataAdapter? da;
         OleDbCommand? cmd;
         DataSet? ds;
-        public static string? DatabasePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "Database", "BookmarkProject.accdb");
-        public static string? ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={DatabasePath};";
+        private static string? DatabasePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "Database", "BookmarkProject.accdb");       
+        private static string? ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={DatabasePath};";
 
         public void register(string username, string password)
         {
@@ -104,7 +104,7 @@ namespace NoteWorthy
                 using (OleDbCommand cmd = new OleDbCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("?", username);
-                    int? count = (int)cmd.ExecuteScalar();
+                    int? count = (int)cmd.ExecuteScalar();                  
                     exists = count > 0;
                 }
             }

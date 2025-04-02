@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,10 +79,11 @@ namespace NoteWorthy
                     float maxFontSize = 30;
 
                     float newSize = Math.Max(minFontSize, Math.Min(scaleFactor, maxFontSize));
-
                     lbl.Font = new Font("Century Gothic", newSize);
                 }
             }
+
         }
     }
 }
+
