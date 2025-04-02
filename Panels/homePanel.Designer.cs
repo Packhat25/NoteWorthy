@@ -36,11 +36,13 @@
             label2 = new Label();
             panel5 = new Panel();
             lblWelcome = new Label();
-            label4 = new Label();
             panel8 = new Panel();
             panel4 = new Panel();
             basePanel1 = new basePanel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            lblRecent = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            flowLayoutPanelRecent = new FlowLayoutPanel();
             panel6 = new Panel();
             panel7 = new Panel();
             panel2.SuspendLayout();
@@ -48,6 +50,8 @@
             panel12.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -111,7 +115,6 @@
             // panel5
             // 
             panel5.Controls.Add(lblWelcome);
-            panel5.Controls.Add(label4);
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(55, 60);
             panel5.Name = "panel5";
@@ -128,16 +131,6 @@
             lblWelcome.Size = new Size(242, 33);
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome, <User>";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 20.25F);
-            label4.Location = new Point(3, 38);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 33);
-            label4.TabIndex = 1;
-            label4.Text = "Analytics";
             // 
             // panel8
             // 
@@ -172,16 +165,52 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
+            tableLayoutPanel1.Controls.Add(lblRecent, 1, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.5F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 89F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 2.5F));
             tableLayoutPanel1.Size = new Size(818, 362);
             tableLayoutPanel1.TabIndex = 4;
+            // 
+            // lblRecent
+            // 
+            lblRecent.AutoSize = true;
+            lblRecent.Dock = DockStyle.Fill;
+            lblRecent.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRecent.Location = new Point(23, 0);
+            lblRecent.Name = "lblRecent";
+            lblRecent.Size = new Size(771, 30);
+            lblRecent.TabIndex = 1;
+            lblRecent.Text = "Recently Added";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(flowLayoutPanelRecent, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(23, 33);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(771, 316);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // flowLayoutPanelRecent
+            // 
+            flowLayoutPanelRecent.BackColor = Color.FromArgb(5, 102, 141);
+            flowLayoutPanelRecent.Dock = DockStyle.Fill;
+            flowLayoutPanelRecent.Location = new Point(3, 3);
+            flowLayoutPanelRecent.Name = "flowLayoutPanelRecent";
+            flowLayoutPanelRecent.Size = new Size(379, 310);
+            flowLayoutPanelRecent.TabIndex = 0;
             // 
             // panel6
             // 
@@ -216,6 +245,7 @@
             Name = "homePanel";
             Size = new Size(928, 632);
             Load += homePanel_Load;
+            Resize += homePanel_Resize;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
@@ -224,6 +254,9 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -239,10 +272,12 @@
         private Label lblWelcome;
         private Panel panel8;
         private Panel panel4;
-        private Label label4;
         private Panel panel6;
         private Panel panel7;
         private basePanel basePanel1;
         private TableLayoutPanel tableLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanelRecent;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label lblRecent;
     }
 }
