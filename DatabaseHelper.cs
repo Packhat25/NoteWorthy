@@ -267,5 +267,23 @@ namespace NoteWorthy
 
             return null; // Return null if no date is found
         }
+        public void DeleteAllBookmarksForUser()
+        {
+            string query = "DELETE FROM Bookmarks WHERE UserID = ?";
+
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?", SessionManager.CurrentUserID);
+
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    MessageBox.Show($"{rowsAffected} bookmark(s) deleted for User ID {SessionManager.CurrentUserID}.");
+                }
+            }
+        }
     }
 }
