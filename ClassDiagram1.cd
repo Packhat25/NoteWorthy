@@ -9,15 +9,13 @@
   <Class Name="NoteWorthy.bookmarkPanel" Collapsed="true">
     <Position X="10.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACCgAAIACBAAFABgAKCQAACAAkAAFAgAwYQQQAAISY=</HashCode>
-      <FileName>Panels\bookmarkPanel.cs</FileName>
+      <HashCode>AACAgAAIACBAAFAAgAKCAAACAAkAAEAgAwIAQQAAACY=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.homePanel" Collapsed="true">
     <Position X="12.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAIgQACAAABAAAACAEAAKAACAAAAAIAAAAUAEACA=</HashCode>
-      <FileName>Panels\homePanel.cs</FileName>
+      <HashCode>AEAAAIAQACAAABAAAACAEAACAAAAAAAAAAAAAUAEACA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.profilePanel" Collapsed="true">
@@ -30,7 +28,7 @@
   <Class Name="NoteWorthy.settingsPanel" Collapsed="true">
     <Position X="12.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAJAAAACAAAACgAAAAAAAAAAAASAAAAA=</HashCode>
+      <HashCode>AACAAAQAACAAAJAAAACAAAACgAAAAEAAAIAAASAAACA=</HashCode>
       <FileName>Panels\settingsPanel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -48,10 +46,10 @@
       <FileName>BaseForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NoteWorthy.DatabaseHelper" Collapsed="true">
+  <Class Name="NoteWorthy.DatabaseHelper">
     <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgBAACAAAAAAQIAEAAAEAAAIAAAAEAgSACAAAQAAA=</HashCode>
+      <HashCode>AAAgBAACAAAAAAQIAEAAAEEAAIAAAAEAgSACAAAQAAA=</HashCode>
       <FileName>DatabaseHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,8 +63,7 @@
   <Class Name="NoteWorthy.LogInUI" Collapsed="true">
     <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAgAAEiAAABAAAACQAAAqACAAAkAAIIUAAQBAAAA=</HashCode>
-      <FileName>LogInUI.cs</FileName>
+      <HashCode>AEAAAgAAACAAABAAAACAAAAiACAAAkAAAAEAAQBAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="NoteWorthy.MenuUI" Collapsed="true">
@@ -111,6 +108,13 @@
   <Class Name="System.Windows.Forms.Form" Collapsed="true">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="NoteWorthy.Utilities">
+    <Position X="5.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
