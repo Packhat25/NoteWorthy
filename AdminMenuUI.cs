@@ -11,6 +11,7 @@ using Timer = System.Windows.Forms.Timer;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Net.Http.Headers;
+using NoteWorthy.Panels;
 namespace NoteWorthy
 {
     public partial class AdminMenuUI : Form
@@ -85,20 +86,11 @@ namespace NoteWorthy
             sidebarTransition.Start();
         }
 
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            StartUpUI startup = new StartUpUI();
-            this.Close();
-            startup.Show();
-            SessionManager.ClearSession();
-
-        }
-
         private homePanel HomePanel;
         private profilePanel profilePanel;
         private bookmarkPanel bookmarkPanel;
         private settingsPanel settingsPanel;
+        private feedbackPanel feedbackPanel;
         private void SwitchPanel(UserControl newPanel)
         {
             panelMenu.Controls.Clear();
@@ -106,9 +98,9 @@ namespace NoteWorthy
             panelMenu.Controls.Add(newPanel);
         }
 
-        private void btnBookmarkMenu_Click(object sender, EventArgs e)
+        private void btnMail_Click(object sender, EventArgs e)
         {
-            SwitchPanel(new bookmarkPanel());
+            SwitchPanel(new feedbackPanel());
         }
         private void btnHome_Click(object sender, EventArgs e)
         {

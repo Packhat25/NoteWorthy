@@ -39,7 +39,7 @@
             sidepanel = new FlowLayoutPanel();
             panel2 = new Panel();
             panel3 = new Panel();
-            btnBookmarkMenu = new Button();
+            btnMail = new Button();
             panel4 = new Panel();
             btnProfile = new Button();
             panel6 = new Panel();
@@ -162,7 +162,7 @@
             sidepanel.MaximumSize = new Size(180, 0);
             sidepanel.MinimumSize = new Size(43, 0);
             sidepanel.Name = "sidepanel";
-            sidepanel.Size = new Size(43, 632);
+            sidepanel.Size = new Size(180, 632);
             sidepanel.TabIndex = 1;
             // 
             // panel2
@@ -175,29 +175,29 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(btnBookmarkMenu);
+            panel3.Controls.Add(btnMail);
             panel3.Location = new Point(3, 54);
             panel3.Name = "panel3";
             panel3.Size = new Size(180, 45);
             panel3.TabIndex = 3;
             // 
-            // btnBookmarkMenu
+            // btnMail
             // 
-            btnBookmarkMenu.BackgroundImageLayout = ImageLayout.Zoom;
-            btnBookmarkMenu.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            btnBookmarkMenu.FlatStyle = FlatStyle.Flat;
-            btnBookmarkMenu.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBookmarkMenu.ForeColor = Color.White;
-            btnBookmarkMenu.Image = Properties.Resources.bookmarkIcon;
-            btnBookmarkMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBookmarkMenu.Location = new Point(0, 0);
-            btnBookmarkMenu.Margin = new Padding(0);
-            btnBookmarkMenu.Name = "btnBookmarkMenu";
-            btnBookmarkMenu.Size = new Size(180, 45);
-            btnBookmarkMenu.TabIndex = 1;
-            btnBookmarkMenu.Text = "Bookmarks";
-            btnBookmarkMenu.UseVisualStyleBackColor = true;
-            btnBookmarkMenu.Click += btnBookmarkMenu_Click;
+            btnMail.BackgroundImageLayout = ImageLayout.Zoom;
+            btnMail.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
+            btnMail.FlatStyle = FlatStyle.Flat;
+            btnMail.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMail.ForeColor = Color.White;
+            btnMail.Image = Properties.Resources.mailbox2;
+            btnMail.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMail.Location = new Point(0, 0);
+            btnMail.Margin = new Padding(0);
+            btnMail.Name = "btnMail";
+            btnMail.Size = new Size(180, 45);
+            btnMail.TabIndex = 1;
+            btnMail.Text = "Mail";
+            btnMail.UseVisualStyleBackColor = true;
+            btnMail.Click += btnMail_Click;
             // 
             // panel4
             // 
@@ -224,7 +224,6 @@
             btnProfile.TabIndex = 1;
             btnProfile.Text = "Profile";
             btnProfile.UseVisualStyleBackColor = true;
-            btnProfile.Click += btnProfile_Click;
             // 
             // panel6
             // 
@@ -255,9 +254,9 @@
             // panelMenu
             // 
             panelMenu.Dock = DockStyle.Fill;
-            panelMenu.Location = new Point(43, 35);
+            panelMenu.Location = new Point(180, 35);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(928, 632);
+            panelMenu.Size = new Size(791, 632);
             panelMenu.TabIndex = 20;
             // 
             // AdminMenuUI
@@ -299,7 +298,7 @@
         private FlowLayoutPanel sidepanel;
         private Panel panel2;
         private Panel panel3;
-        private Button btnBookmarkMenu;
+        private Button btnMail;
         private Panel panel4;
         private Button btnProfile;
         private Panel panelMenu;

@@ -25,7 +25,6 @@ namespace NoteWorthy
         public MenuUI()
         {
             InitializeComponent();
-
         }
         private void MenuUI_Load(object sender, EventArgs e)
         {
@@ -42,11 +41,8 @@ namespace NoteWorthy
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btnMax_Click_1(object sender, EventArgs e)
         {
-
-
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -84,17 +80,6 @@ namespace NoteWorthy
             sidebarExpand = !sidebarExpand;
             sidebarTransition.Start();
         }
-
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            StartUpUI startup = new StartUpUI();
-            this.Close();
-            startup.Show();
-            SessionManager.ClearSession();
-
-        }
-
         private homePanel HomePanel;
         private profilePanel profilePanel;
         private bookmarkPanel bookmarkPanel;
@@ -123,7 +108,6 @@ namespace NoteWorthy
         {
             settingsPanel settings = new settingsPanel();
 
-            // Subscribe to the LogoutRequested event
             settings.LogoutRequested += this.logOutHere;
 
             SwitchPanel(settings);
