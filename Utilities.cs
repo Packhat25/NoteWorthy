@@ -12,14 +12,14 @@ namespace NoteWorthy
     {
         public static string GetOrdinal(int number)
         {
-            if (number <= 0) return number.ToString(); // Return as-is if invalid
+            if (number <= 0) return number.ToString(); 
 
             int lastDigit = number % 10;
             int lastTwoDigits = number % 100;
 
             if (lastTwoDigits >= 11 && lastTwoDigits <= 13)
             {
-                return number + "th"; // Special case for 11, 12, 13
+                return number + "th";
             }
 
             return number + (lastDigit switch
@@ -37,11 +37,10 @@ namespace NoteWorthy
                 byte[] bytes = Encoding.UTF8.GetBytes(password);
                 byte[] hashBytes = sha256.ComputeHash(bytes);
 
-                // Convert hashed bytes to a readable string format
                 StringBuilder builder = new StringBuilder();
                 foreach (byte b in hashBytes)
                 {
-                    builder.Append(b.ToString("x2")); // Convert to hexadecimal
+                    builder.Append(b.ToString("x2")); 
                 }
                 return builder.ToString();
             }
@@ -49,14 +48,14 @@ namespace NoteWorthy
         public static int OrdinalToInt(string ordinal)
         {
             if (string.IsNullOrEmpty(ordinal))
-                return 0; // Default to 0 if empty
+                return 0;
 
             string numberPart = new string(ordinal.TakeWhile(char.IsDigit).ToArray());
 
             if (int.TryParse(numberPart, out int result))
                 return result;
 
-            return 0; // Default if parsing fails
+            return 0;
         }
     }    
 }

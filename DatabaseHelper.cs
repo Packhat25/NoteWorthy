@@ -119,7 +119,7 @@ namespace NoteWorthy
                 myConn = new OleDbConnection(ConnectionString);
                 myConn.Open();
 
-                string query = "SELECT bookmarkID ,Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded FROM Bookmarks WHERE UserID = @userID";
+                string query = "SELECT bookmarkID ,Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, favorite FROM Bookmarks WHERE UserID = @userID";
 
                 cmd = new OleDbCommand(query, myConn);
                 cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);
@@ -265,7 +265,7 @@ namespace NoteWorthy
                 }
             }
 
-            return null; // Return null if no date is found
+            return null;
         }
         public void DeleteAllBookmarksForUser()
         {
@@ -284,6 +284,56 @@ namespace NoteWorthy
                     MessageBox.Show($"{rowsAffected} bookmark(s) deleted for User ID {SessionManager.CurrentUserID}.");
                 }
             }
+        }
+        public bool UpdateFavoriteStatus(int bookmarkID, bool isFavorite)
+        {
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string query = "UPDATE Bookmarks SET favorite = ? WHERE BookmarkID = ?";
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", isFavorite);
+                        cmd.Parameters.AddWithValue("?", bookmarkID);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating favorite status: " + ex.Message);
+                return false;
+            }
+        }
+        public DataTable GetFavoriteBookmarks(int userId)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (OleDbConnection myConn = new OleDbConnection(ConnectionString))
+                {
+                    myConn.Open();
+                    string query = "SELECT Title FROM Bookmarks WHERE UserID = @userID AND favorite = True";
+                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
+                    {
+                        cmd.Parameters.AddWithValue("@userID", userId);
+                        using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return dt;
         }
     }
 }

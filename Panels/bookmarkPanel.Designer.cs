@@ -34,9 +34,11 @@
             label1 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
-            btnDelete = new Button();
-            btnEdit = new Button();
+            tableLayoutPanel2 = new TableLayoutPanel();
             btnNewbookmark = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnFavorite = new Button();
             panel3 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel4 = new Panel();
@@ -55,8 +57,10 @@
             PageNumber = new DataGridViewTextBoxColumn();
             Author = new DataGridViewTextBoxColumn();
             DateAdded = new DataGridViewTextBoxColumn();
+            Favorite = new DataGridViewCheckBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -87,62 +91,96 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnDelete);
-            panel1.Controls.Add(btnEdit);
-            panel1.Controls.Add(btnNewbookmark);
+            panel1.Controls.Add(tableLayoutPanel2);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 565);
             panel1.Name = "panel1";
             panel1.Size = new Size(928, 67);
             panel1.TabIndex = 10;
             // 
-            // btnDelete
+            // tableLayoutPanel2
             // 
-            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnDelete.BackColor = Color.FromArgb(5, 102, 141);
-            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Century Gothic", 11.25F);
-            btnDelete.ForeColor = Color.Transparent;
-            btnDelete.Location = new Point(675, 18);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(213, 34);
-            btnDelete.TabIndex = 15;
-            btnDelete.Text = "Delete Bookmark";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.Controls.Add(btnNewbookmark, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnEdit, 1, 0);
+            tableLayoutPanel2.Controls.Add(btnDelete, 3, 0);
+            tableLayoutPanel2.Controls.Add(btnFavorite, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.Padding = new Padding(2, 7, 2, 7);
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(928, 67);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btnNewbookmark
+            // 
+            btnNewbookmark.BackColor = Color.FromArgb(5, 102, 141);
+            btnNewbookmark.Dock = DockStyle.Fill;
+            btnNewbookmark.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnNewbookmark.FlatStyle = FlatStyle.Flat;
+            btnNewbookmark.Font = new Font("Century Gothic", 11.25F);
+            btnNewbookmark.ForeColor = Color.Transparent;
+            btnNewbookmark.Location = new Point(5, 10);
+            btnNewbookmark.Name = "btnNewbookmark";
+            btnNewbookmark.Size = new Size(225, 47);
+            btnNewbookmark.TabIndex = 13;
+            btnNewbookmark.Text = "Add new Bookmark";
+            btnNewbookmark.UseVisualStyleBackColor = false;
+            btnNewbookmark.Click += btnNewbookmark_Click;
             // 
             // btnEdit
             // 
-            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnEdit.BackColor = Color.FromArgb(5, 102, 141);
+            btnEdit.Dock = DockStyle.Fill;
             btnEdit.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Century Gothic", 11.25F);
             btnEdit.ForeColor = Color.Transparent;
-            btnEdit.Location = new Point(359, 18);
+            btnEdit.Location = new Point(236, 10);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(213, 36);
+            btnEdit.Size = new Size(225, 47);
             btnEdit.TabIndex = 14;
             btnEdit.Text = "Edit Bookmark";
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
-            // btnNewbookmark
+            // btnDelete
             // 
-            btnNewbookmark.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnNewbookmark.BackColor = Color.FromArgb(5, 102, 141);
-            btnNewbookmark.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
-            btnNewbookmark.FlatStyle = FlatStyle.Flat;
-            btnNewbookmark.Font = new Font("Century Gothic", 11.25F);
-            btnNewbookmark.ForeColor = Color.Transparent;
-            btnNewbookmark.Location = new Point(47, 18);
-            btnNewbookmark.Name = "btnNewbookmark";
-            btnNewbookmark.Size = new Size(213, 34);
-            btnNewbookmark.TabIndex = 13;
-            btnNewbookmark.Text = "Add new Bookmark";
-            btnNewbookmark.UseVisualStyleBackColor = false;
-            btnNewbookmark.Click += btnNewbookmark_Click;
+            btnDelete.BackColor = Color.FromArgb(5, 102, 141);
+            btnDelete.Dock = DockStyle.Fill;
+            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Century Gothic", 11.25F);
+            btnDelete.ForeColor = Color.Transparent;
+            btnDelete.Location = new Point(698, 10);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(225, 47);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "Delete Bookmark";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnFavorite
+            // 
+            btnFavorite.BackColor = Color.FromArgb(5, 102, 141);
+            btnFavorite.Dock = DockStyle.Fill;
+            btnFavorite.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnFavorite.FlatStyle = FlatStyle.Flat;
+            btnFavorite.Font = new Font("Century Gothic", 11.25F);
+            btnFavorite.ForeColor = Color.Transparent;
+            btnFavorite.Location = new Point(467, 10);
+            btnFavorite.Name = "btnFavorite";
+            btnFavorite.Size = new Size(225, 47);
+            btnFavorite.TabIndex = 17;
+            btnFavorite.Text = "Mark as Favorite";
+            btnFavorite.UseVisualStyleBackColor = false;
+            btnFavorite.Click += btnFavorite_Click;
             // 
             // panel3
             // 
@@ -261,7 +299,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBookmark.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { BookmarkID, Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded });
+            dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { BookmarkID, Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, Favorite });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(169, 211, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -273,6 +311,7 @@
             dgvBookmark.Dock = DockStyle.Fill;
             dgvBookmark.GridColor = Color.Black;
             dgvBookmark.Location = new Point(0, 100);
+            dgvBookmark.MultiSelect = false;
             dgvBookmark.Name = "dgvBookmark";
             dgvBookmark.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -352,6 +391,15 @@
             DateAdded.Name = "DateAdded";
             DateAdded.ReadOnly = true;
             // 
+            // Favorite
+            // 
+            Favorite.DataPropertyName = "favorite";
+            Favorite.HeaderText = "Favorite";
+            Favorite.Name = "Favorite";
+            Favorite.ReadOnly = true;
+            Favorite.Resizable = DataGridViewTriState.True;
+            Favorite.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // bookmarkPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -366,6 +414,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -392,6 +441,9 @@
         private Panel panel5;
         private TextBox tbxSearch;
         private Button btnFilter;
+        private ComboBox cmbFilter;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Button btnFavorite;
         private DataGridViewTextBoxColumn BookmarkID;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Genre;
@@ -401,6 +453,6 @@
         private DataGridViewTextBoxColumn PageNumber;
         private DataGridViewTextBoxColumn Author;
         private DataGridViewTextBoxColumn DateAdded;
-        private ComboBox cmbFilter;
+        private DataGridViewCheckBoxColumn Favorite;
     }
 }

@@ -24,7 +24,7 @@ namespace NoteWorthy
         int i;
         private void RegisterUI_Load(object sender, EventArgs e)
         {
-            i = StartUpUI.parentX + 150;  // Target position (final spot)
+            i = StartUpUI.parentX + 150;// final loc
             this.Location = new Point(StartUpUI.parentX + 250, StartUpUI.parentY + 100);
         }
 

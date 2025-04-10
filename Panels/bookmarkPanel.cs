@@ -20,7 +20,7 @@ namespace NoteWorthy
             dgvBookmark.AutoGenerateColumns = false;
             dgvBookmark.EnableHeadersVisualStyles = false;
             dgvBookmark.Columns["BookmarkID"].Visible = false;
-            cmbFilter.SelectedIndex= 0;
+            cmbFilter.SelectedIndex = 0;
 
             this.BringToFront();
         }
@@ -50,6 +50,7 @@ namespace NoteWorthy
         {
             dt = dbHelper.GetBookmarks();
             dgvBookmark.DataSource = dt;
+            dgvBookmark.Columns["Favorite"].ReadOnly = false;
         }
         private void btnNewbookmark_Click(object sender, EventArgs e)
         {
@@ -107,7 +108,7 @@ namespace NoteWorthy
         }
         private void ApplyFilters()
         {
-            if (dt != null) // Ensure DataTable is loaded
+            if (dt != null)
             {
                 DataView dv = dt.DefaultView;
                 string searchText = tbxSearch.Text.Trim();
@@ -115,22 +116,47 @@ namespace NoteWorthy
 
                 List<string> filters = new List<string>();
 
-                // Apply title search filter
                 if (!string.IsNullOrEmpty(searchText))
                 {
                     filters.Add($"Title LIKE '%{searchText}%'");
                 }
 
-                // Apply genre filter (ignore if "All" is selected)
                 if (!string.IsNullOrEmpty(selectedGenre) && selectedGenre != "All")
                 {
                     filters.Add($"Genre = '{selectedGenre}'");
                 }
 
-                // Combine filters with AND condition
                 dv.RowFilter = string.Join(" AND ", filters);
 
-                dgvBookmark.DataSource = dv; // Update DataGridView
+                dgvBookmark.DataSource = dv;
+            }
+        }
+
+        private void btnFavorite_Click(object sender, EventArgs e)
+        {
+            if (dgvBookmark.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvBookmark.SelectedRows[0];
+                int bookmarkID = Convert.ToInt32(selectedRow.Cells["BookmarkID"].Value);
+                bool isFavorite = Convert.ToBoolean(selectedRow.Cells["Favorite"].Value);
+
+                bool newFavoriteValue = !isFavorite;
+
+                bool success = dbHelper.UpdateFavoriteStatus(bookmarkID, newFavoriteValue);
+
+                if (success)
+                {
+                    MessageBox.Show("Favorite status updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadBookmarks(); 
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update favorite status.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a bookmark to toggle favorite status.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

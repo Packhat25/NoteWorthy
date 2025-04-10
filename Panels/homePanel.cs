@@ -23,6 +23,7 @@ namespace NoteWorthy
         {
             lblWelcome.Text = $"Welcome, {SessionManager.CurrentUsername} ";
             LoadRecentBookmarks();
+            LoadFavoriteBookmarks();
         }
         private void LoadRecentBookmarks()
         {
@@ -32,12 +33,12 @@ namespace NoteWorthy
 
             flowLayoutPanelRecent.Controls.Clear();
             flowLayoutPanelRecent.FlowDirection = FlowDirection.TopDown; // Arrange items vertically
-            flowLayoutPanelRecent.WrapContents = false; // Prevent horizontal wrapping
+            flowLayoutPanelRecent.WrapContents = false; // Prevent horizontal wrapping  
 
             int count = 0;
             foreach (DataRow row in dv.ToTable().Rows)
             {
-                if (count >= 8) break; // Stop at 5
+                if (count >= 5) break; // Stop at 5
 
                 Label lbl = new Label
                 {
@@ -53,29 +54,66 @@ namespace NoteWorthy
                 count++;
             }
         }
+        private void LoadFavoriteBookmarks()
+        {
+            flpFavorites.Controls.Clear();
 
+            // Set FlowLayoutPanel properties to arrange items vertically
+            flpFavorites.FlowDirection = FlowDirection.TopDown; // Arrange items in rows
+            flpFavorites.WrapContents = false; // Prevent horizontal wrapping
+
+            DataTable dt = dbHelper.GetFavoriteBookmarks((int)SessionManager.CurrentUserID);
+            int i = 1;
+            foreach (DataRow row in dt.Rows)
+            {
+                Label lbl = new Label
+                {
+                    Text = $"{i}.) "+row["Title"].ToString(),
+                    AutoSize = true,
+                    Font = new Font("Century Gothic", 12),
+                    ForeColor = Color.White,
+                    Padding = new Padding(5)
+                };
+                i++;
+                flpFavorites.Controls.Add(lbl);
+            }
+        }
         private void homePanel_Resize(object sender, EventArgs e)
         {
             AdjustLabelFontSize();
         }
         private void AdjustLabelFontSize()
         {
-            if (flowLayoutPanelRecent.Controls.Count == 0) return;
+            int baseFontSize = 12;
 
-            int baseFontSize = 12; // Default font size
-            float scaleFactor = flowLayoutPanelRecent.Width / 500f; // Adjust based on panel width
+            AdjustFontSizeForPanel(flowLayoutPanelRecent, baseFontSize);
+            AdjustFontSizeForPanel(flpFavorites, baseFontSize);
+
+            float headerFontSize = Math.Max(baseFontSize * (flowLayoutPanelRecent.Width / 500f), 20.25f);
+
+            lblRecent.Font = new Font("Century Gothic", headerFontSize);
+            lblWelcome.Font = new Font("Century Gothic", headerFontSize);
+            lblReco.Font = new Font("Century Gothic", headerFontSize);
+            lblFavorites.Font = new Font("Century Gothic", headerFontSize);
+           
+        }
+
+        private void AdjustFontSizeForPanel(FlowLayoutPanel panel, int baseFontSize)
+        {
+            if (panel.Controls.Count == 0) return;
+
+            // Calculate scale factor based on panel width
+            float scaleFactor = panel.Width / 500f;
             float newFontSize = Math.Max(baseFontSize * scaleFactor, 12);
-            float s = Math.Max(baseFontSize * scaleFactor, 20.25f);
-            foreach (Control control in flowLayoutPanelRecent.Controls)
+
+            // Adjust font size for each label inside the FlowLayoutPanel
+            foreach (Control control in panel.Controls)
             {
                 if (control is Label lbl)
                 {
-                    // Ensure the font size is never smaller than 12                
-                    lbl.Font = new Font("Century Gothic", newFontSize);                  
+                    lbl.Font = new Font("Century Gothic", newFontSize);
                 }
             }
-            lblRecent.Font = new Font("Century Gothic", s);
-            lblWelcome.Font = new Font("Century Gothic", s);
         }
     }
 }

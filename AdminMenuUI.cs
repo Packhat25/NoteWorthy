@@ -115,7 +115,6 @@ namespace NoteWorthy
         {
             settingsPanel settings = new settingsPanel();
 
-            // Subscribe to the LogoutRequested event
             settings.LogoutRequested += this.logOutHere;
 
             SwitchPanel(settings);
