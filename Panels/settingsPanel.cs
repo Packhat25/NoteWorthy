@@ -16,8 +16,6 @@ namespace NoteWorthy
         public settingsPanel()
         {
             InitializeComponent();
-
-
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -27,7 +25,7 @@ namespace NoteWorthy
         private void btnClearbookmark_Click(object sender, EventArgs e)
         {
             // Ask for confirmation before deleting
-            var confirmResult = MessageBox.Show("Are you sure you want to delete all bookmarks for this user?","Confirm Delete", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            var confirmResult = MessageBox.Show("Are you sure you want to delete all bookmarks for this user?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirmResult == DialogResult.Yes)
             {
@@ -37,6 +35,12 @@ namespace NoteWorthy
             else
             {
             }
+        }
+
+        private void btnFeedback_Click(object sender, EventArgs e)
+        {
+            sendFeedback sendFeedback= new sendFeedback();
+            sendFeedback.ShowDialog();
         }
     }
 }

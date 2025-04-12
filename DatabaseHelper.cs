@@ -9,6 +9,9 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace NoteWorthy
 {    
@@ -331,6 +334,65 @@ namespace NoteWorthy
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return dt;
+        }
+        public bool AddFeedback(string subject, string body)
+        {
+            bool success = false;
+
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    string query = "INSERT INTO Feedbacks (userID, subject, body, status, feedbackDate) " +
+                                   "VALUES (?, ?, ?, ?, ?)";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("?", OleDbType.Integer).Value = SessionManager.CurrentUserID;
+                        cmd.Parameters.Add("?", OleDbType.VarChar).Value = subject;
+                        cmd.Parameters.Add("?", OleDbType.LongVarChar).Value = body;
+                        cmd.Parameters.Add("?", OleDbType.Boolean).Value = false;
+                        cmd.Parameters.Add("?", OleDbType.Date).Value = DateTime.Now.Date;
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        success = rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding feedback: " + ex.Message);
+            }
+
+            return success;
+        }
+        public DataTable GetAllFeedbacks()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT Users.UserID, Users.Username, Feedbacks.feedbackID, Feedbacks.subject, Feedbacks.body,"+ 
+                        "Feedbacks.status, Feedbacks.feedbackDate FROM Users INNER JOIN Feedbacks ON Users.UserID = Feedbacks.userID";
+
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading feedbacks: " + ex.Message);
             }
 
             return dt;

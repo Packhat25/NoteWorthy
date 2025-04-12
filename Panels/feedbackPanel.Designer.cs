@@ -31,14 +31,12 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            button1 = new Button();
+            lblFrom = new Label();
             panel1 = new Panel();
-            panel5 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            flpFeedbacks = new FlowLayoutPanel();
+            lblSubject = new Label();
+            tbxBody = new TextBox();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -46,76 +44,75 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(103, 632);
+            panel2.Size = new Size(52, 632);
             panel2.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(866, 0);
+            panel3.Location = new Point(876, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(62, 632);
+            panel3.Size = new Size(52, 632);
             panel3.TabIndex = 2;
             // 
             // panel4
             // 
-            panel4.Controls.Add(button1);
+            panel4.Controls.Add(tbxBody);
+            panel4.Controls.Add(lblSubject);
+            panel4.Controls.Add(lblFrom);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(103, 0);
+            panel4.Location = new Point(52, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(763, 100);
+            panel4.Size = new Size(824, 455);
             panel4.TabIndex = 3;
             // 
-            // button1
+            // lblFrom
             // 
-            button1.Location = new Point(31, 42);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            lblFrom.AutoSize = true;
+            lblFrom.Location = new Point(16, 18);
+            lblFrom.Name = "lblFrom";
+            lblFrom.Size = new Size(38, 15);
+            lblFrom.TabIndex = 0;
+            lblFrom.Text = "label1";
             // 
             // panel1
             // 
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(103, 532);
+            panel1.Location = new Point(52, 597);
             panel1.Name = "panel1";
-            panel1.Size = new Size(763, 100);
+            panel1.Size = new Size(824, 35);
             panel1.TabIndex = 4;
             // 
-            // panel5
+            // flpFeedbacks
             // 
-            panel5.Controls.Add(flowLayoutPanel1);
-            panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(103, 100);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(763, 432);
-            panel5.TabIndex = 5;
+            flpFeedbacks.BackColor = Color.FromArgb(91, 72, 87);
+            flpFeedbacks.Dock = DockStyle.Fill;
+            flpFeedbacks.Location = new Point(52, 455);
+            flpFeedbacks.Name = "flpFeedbacks";
+            flpFeedbacks.Size = new Size(824, 142);
+            flpFeedbacks.TabIndex = 5;
             // 
-            // flowLayoutPanel1
+            // lblSubject
             // 
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(5);
-            flowLayoutPanel1.Size = new Size(763, 432);
-            flowLayoutPanel1.TabIndex = 0;
+            lblSubject.AutoSize = true;
+            lblSubject.Location = new Point(16, 85);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(38, 15);
+            lblSubject.TabIndex = 1;
+            lblSubject.Text = "label1";
             // 
-            // flowLayoutPanel2
+            // tbxBody
             // 
-            flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(8, 8);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(200, 0);
-            flowLayoutPanel2.TabIndex = 0;
+            tbxBody.Location = new Point(242, 69);
+            tbxBody.Name = "tbxBody";
+            tbxBody.Size = new Size(100, 23);
+            tbxBody.TabIndex = 2;
             // 
             // feedbackPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel5);
+            Controls.Add(flpFeedbacks);
             Controls.Add(panel1);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -123,8 +120,7 @@
             Name = "feedbackPanel";
             Size = new Size(928, 632);
             panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -134,9 +130,9 @@
         private Panel panel3;
         private Panel panel4;
         private Panel panel1;
-        private Panel panel5;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flpFeedbacks;
+        private Label lblFrom;
+        private Label lblSubject;
+        private TextBox tbxBody;
     }
 }

@@ -10,21 +10,53 @@ using System.Windows.Forms;
 
 namespace NoteWorthy.Panels
 {
-    public partial class feedbackPanel : UserControl
+    public partial class feedbackPanel : basePanel
     {
+
         public feedbackPanel()
         {
             InitializeComponent();
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.WrapContents = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            flpFeedbacks.Dock = DockStyle.Fill;
+            flpFeedbacks.AutoScroll = true;
+            flpFeedbacks.WrapContents = false;
+            flpFeedbacks.FlowDirection = FlowDirection.LeftToRight;
+            flpFeedbacks.Left = 0;
+            flpFeedbacks.Padding = new Padding(0);
+            LoadFeedbackCards();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void LoadFeedbackCards()
         {
-            FeedbackCard card = new FeedbackCard(); 
-            flowLayoutPanel1.Controls.Add(card);
+            DataTable dt = dbHelper.GetAllFeedbacks();
+            flpFeedbacks.Controls.Clear();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                FeedbackCard card = new FeedbackCard();
+
+                card.SetDetails(
+                    from: row["Username"].ToString(),
+                    feedbackID: row["feedbackID"].ToString(),
+                    subject: row["subject"].ToString(),
+                    status: Convert.ToBoolean(row["status"])
+                );
+                card.CardClicked += Card_CardClicked;
+                flpFeedbacks.Controls.Add(card);
+            }
+        }
+        private void Card_CardClicked(object sender, string feedbackID)
+        {
+            DataTable dt = dbHelper.GetAllFeedbacks(); // You can cache this too if you want
+            DataRow[] rows = dt.Select($"feedbackID = {feedbackID}");
+
+            if (rows.Length > 0)
+            {
+                DataRow row = rows[0];
+
+                lblFrom.Text = "From: " + row["Username"].ToString();
+                lblSubject.Text = "Subject: " + row["subject"].ToString();
+                tbxBody.Text = row["body"].ToString();
+             
+            }
         }
     }
 }

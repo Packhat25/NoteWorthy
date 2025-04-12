@@ -185,6 +185,7 @@
             btnFeedback.TabIndex = 4;
             btnFeedback.Text = "Feedback";
             btnFeedback.UseVisualStyleBackColor = false;
+            btnFeedback.Click += btnFeedback_Click;
             // 
             // btnClearbookmark
             // 
