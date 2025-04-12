@@ -48,7 +48,7 @@ namespace NoteWorthy
                 MessageBox.Show($"Welcome, {username}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                MenuUI Menu = new MenuUI();
+                AdminMenuUI Menu = new AdminMenuUI();
                 Menu.Show();
                 if (this.Owner is StartUpUI startup)
                 {
