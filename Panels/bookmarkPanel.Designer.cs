@@ -29,16 +29,23 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             label1 = new Label();
             panel2 = new Panel();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            btnRate = new Button();
             btnNewbookmark = new Button();
             btnEdit = new Button();
-            btnDelete = new Button();
             btnFavorite = new Button();
+            btnDelete = new Button();
             panel3 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel4 = new Panel();
@@ -58,6 +65,7 @@
             Author = new DataGridViewTextBoxColumn();
             DateAdded = new DataGridViewTextBoxColumn();
             Favorite = new DataGridViewCheckBoxColumn();
+            Ratings = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -100,15 +108,17 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.ColumnCount = 5;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.Controls.Add(btnRate, 3, 0);
             tableLayoutPanel2.Controls.Add(btnNewbookmark, 0, 0);
             tableLayoutPanel2.Controls.Add(btnEdit, 1, 0);
-            tableLayoutPanel2.Controls.Add(btnDelete, 3, 0);
             tableLayoutPanel2.Controls.Add(btnFavorite, 2, 0);
+            tableLayoutPanel2.Controls.Add(btnDelete, 4, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -117,6 +127,22 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(928, 67);
             tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btnRate
+            // 
+            btnRate.BackColor = Color.FromArgb(5, 102, 141);
+            btnRate.Dock = DockStyle.Fill;
+            btnRate.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnRate.FlatStyle = FlatStyle.Flat;
+            btnRate.Font = new Font("Century Gothic", 11.25F);
+            btnRate.ForeColor = Color.Transparent;
+            btnRate.Location = new Point(557, 10);
+            btnRate.Name = "btnRate";
+            btnRate.Size = new Size(178, 47);
+            btnRate.TabIndex = 18;
+            btnRate.Text = "Rate";
+            btnRate.UseVisualStyleBackColor = false;
+            btnRate.Click += btnRate_Click;
             // 
             // btnNewbookmark
             // 
@@ -128,7 +154,7 @@
             btnNewbookmark.ForeColor = Color.Transparent;
             btnNewbookmark.Location = new Point(5, 10);
             btnNewbookmark.Name = "btnNewbookmark";
-            btnNewbookmark.Size = new Size(225, 47);
+            btnNewbookmark.Size = new Size(178, 47);
             btnNewbookmark.TabIndex = 13;
             btnNewbookmark.Text = "Add new Bookmark";
             btnNewbookmark.UseVisualStyleBackColor = false;
@@ -142,29 +168,13 @@
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Century Gothic", 11.25F);
             btnEdit.ForeColor = Color.Transparent;
-            btnEdit.Location = new Point(236, 10);
+            btnEdit.Location = new Point(189, 10);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(225, 47);
+            btnEdit.Size = new Size(178, 47);
             btnEdit.TabIndex = 14;
             btnEdit.Text = "Edit Bookmark";
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.FromArgb(5, 102, 141);
-            btnDelete.Dock = DockStyle.Fill;
-            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Century Gothic", 11.25F);
-            btnDelete.ForeColor = Color.Transparent;
-            btnDelete.Location = new Point(698, 10);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(225, 47);
-            btnDelete.TabIndex = 15;
-            btnDelete.Text = "Delete Bookmark";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnFavorite
             // 
@@ -174,13 +184,29 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Century Gothic", 11.25F);
             btnFavorite.ForeColor = Color.Transparent;
-            btnFavorite.Location = new Point(467, 10);
+            btnFavorite.Location = new Point(373, 10);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(225, 47);
+            btnFavorite.Size = new Size(178, 47);
             btnFavorite.TabIndex = 17;
             btnFavorite.Text = "Mark as Favorite";
             btnFavorite.UseVisualStyleBackColor = false;
             btnFavorite.Click += btnFavorite_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(5, 102, 141);
+            btnDelete.Dock = DockStyle.Fill;
+            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 192);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Century Gothic", 11.25F);
+            btnDelete.ForeColor = Color.Transparent;
+            btnDelete.Location = new Point(741, 10);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(182, 47);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "Delete Bookmark";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // panel3
             // 
@@ -286,6 +312,7 @@
             // 
             dgvBookmark.AllowUserToAddRows = false;
             dgvBookmark.AllowUserToDeleteRows = false;
+            dgvBookmark.AllowUserToResizeColumns = false;
             dgvBookmark.AllowUserToResizeRows = false;
             dgvBookmark.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBookmark.BackgroundColor = Color.FromArgb(252, 204, 197);
@@ -299,29 +326,29 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvBookmark.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBookmark.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { BookmarkID, Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, Favorite });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvBookmark.Columns.AddRange(new DataGridViewColumn[] { BookmarkID, Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, Favorite, Ratings });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvBookmark.DefaultCellStyle = dataGridViewCellStyle8;
             dgvBookmark.Dock = DockStyle.Fill;
             dgvBookmark.GridColor = Color.Black;
             dgvBookmark.Location = new Point(0, 100);
             dgvBookmark.MultiSelect = false;
             dgvBookmark.Name = "dgvBookmark";
             dgvBookmark.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(169, 211, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(169, 211, 255);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvBookmark.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvBookmark.RowHeadersVisible = false;
             dgvBookmark.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBookmark.Size = new Size(928, 465);
@@ -331,6 +358,7 @@
             // BookmarkID
             // 
             BookmarkID.DataPropertyName = "bookmarkID";
+            BookmarkID.FillWeight = 1F;
             BookmarkID.HeaderText = "Bookmark ID";
             BookmarkID.Name = "BookmarkID";
             BookmarkID.ReadOnly = true;
@@ -338,6 +366,7 @@
             // Title
             // 
             Title.DataPropertyName = "Title";
+            Title.FillWeight = 80F;
             Title.HeaderText = "Title";
             Title.Name = "Title";
             Title.ReadOnly = true;
@@ -345,6 +374,7 @@
             // Genre
             // 
             Genre.DataPropertyName = "Genre";
+            Genre.FillWeight = 80F;
             Genre.HeaderText = "Genre";
             Genre.Name = "Genre";
             Genre.ReadOnly = true;
@@ -352,6 +382,9 @@
             // Volume
             // 
             Volume.DataPropertyName = "Volume";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Volume.DefaultCellStyle = dataGridViewCellStyle2;
+            Volume.FillWeight = 80F;
             Volume.HeaderText = "Volume";
             Volume.Name = "Volume";
             Volume.ReadOnly = true;
@@ -359,6 +392,9 @@
             // Edition
             // 
             Edition.DataPropertyName = "Edition";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Edition.DefaultCellStyle = dataGridViewCellStyle3;
+            Edition.FillWeight = 80F;
             Edition.HeaderText = "Edition";
             Edition.Name = "Edition";
             Edition.ReadOnly = true;
@@ -366,6 +402,9 @@
             // Chapter
             // 
             Chapter.DataPropertyName = "Chapter";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Chapter.DefaultCellStyle = dataGridViewCellStyle4;
+            Chapter.FillWeight = 80F;
             Chapter.HeaderText = "Chapter";
             Chapter.Name = "Chapter";
             Chapter.ReadOnly = true;
@@ -373,6 +412,9 @@
             // PageNumber
             // 
             PageNumber.DataPropertyName = "PageNumber";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            PageNumber.DefaultCellStyle = dataGridViewCellStyle5;
+            PageNumber.FillWeight = 80F;
             PageNumber.HeaderText = "Page Number";
             PageNumber.Name = "PageNumber";
             PageNumber.ReadOnly = true;
@@ -387,6 +429,9 @@
             // DateAdded
             // 
             DateAdded.DataPropertyName = "DateAdded";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DateAdded.DefaultCellStyle = dataGridViewCellStyle6;
+            DateAdded.FillWeight = 80F;
             DateAdded.HeaderText = "Date Added";
             DateAdded.Name = "DateAdded";
             DateAdded.ReadOnly = true;
@@ -394,11 +439,23 @@
             // Favorite
             // 
             Favorite.DataPropertyName = "favorite";
+            Favorite.FillWeight = 70F;
             Favorite.HeaderText = "Favorite";
             Favorite.Name = "Favorite";
             Favorite.ReadOnly = true;
-            Favorite.Resizable = DataGridViewTriState.True;
+            Favorite.Resizable = DataGridViewTriState.False;
             Favorite.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Ratings
+            // 
+            Ratings.DataPropertyName = "Rating";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Ratings.DefaultCellStyle = dataGridViewCellStyle7;
+            Ratings.FillWeight = 80F;
+            Ratings.HeaderText = "Ratings(1-5)";
+            Ratings.Name = "Ratings";
+            Ratings.ReadOnly = true;
+            Ratings.Resizable = DataGridViewTriState.False;
             // 
             // bookmarkPanel
             // 
@@ -444,6 +501,7 @@
         private ComboBox cmbFilter;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnFavorite;
+        private Button btnRate;
         private DataGridViewTextBoxColumn BookmarkID;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Genre;
@@ -454,5 +512,6 @@
         private DataGridViewTextBoxColumn Author;
         private DataGridViewTextBoxColumn DateAdded;
         private DataGridViewCheckBoxColumn Favorite;
+        private DataGridViewTextBoxColumn Ratings;
     }
 }

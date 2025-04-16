@@ -87,7 +87,6 @@ namespace NoteWorthy
         }
 
         private homePanel HomePanel;
-        private profilePanel profilePanel;
         private bookmarkPanel bookmarkPanel;
         private settingsPanel settingsPanel;
         private feedbackPanel feedbackPanel;
@@ -106,11 +105,6 @@ namespace NoteWorthy
         {
             SwitchPanel(new homePanel());
         }
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new profilePanel());
-        }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             settingsPanel settings = new settingsPanel();
@@ -134,6 +128,11 @@ namespace NoteWorthy
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
+        }
+
+        private void btnStats_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

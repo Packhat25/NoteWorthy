@@ -41,7 +41,7 @@
             panel3 = new Panel();
             btnMail = new Button();
             panel4 = new Panel();
-            btnProfile = new Button();
+            btnStats = new Button();
             panel6 = new Panel();
             btnSettings = new Button();
             panelMenu = new Panel();
@@ -162,7 +162,7 @@
             sidepanel.MaximumSize = new Size(180, 0);
             sidepanel.MinimumSize = new Size(43, 0);
             sidepanel.Name = "sidepanel";
-            sidepanel.Size = new Size(180, 632);
+            sidepanel.Size = new Size(43, 632);
             sidepanel.TabIndex = 1;
             // 
             // panel2
@@ -202,28 +202,29 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Bottom;
-            panel4.Controls.Add(btnProfile);
+            panel4.Controls.Add(btnStats);
             panel4.Location = new Point(3, 105);
             panel4.Name = "panel4";
             panel4.Size = new Size(180, 45);
             panel4.TabIndex = 4;
             // 
-            // btnProfile
+            // btnStats
             // 
-            btnProfile.BackgroundImageLayout = ImageLayout.Zoom;
-            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProfile.ForeColor = Color.White;
-            btnProfile.Image = Properties.Resources.profleIcon2;
-            btnProfile.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProfile.Location = new Point(0, 0);
-            btnProfile.Margin = new Padding(0);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(180, 45);
-            btnProfile.TabIndex = 1;
-            btnProfile.Text = "Profile";
-            btnProfile.UseVisualStyleBackColor = true;
+            btnStats.BackgroundImageLayout = ImageLayout.Zoom;
+            btnStats.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
+            btnStats.FlatStyle = FlatStyle.Flat;
+            btnStats.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStats.ForeColor = Color.White;
+            btnStats.Image = Properties.Resources.StatsIcon;
+            btnStats.ImageAlign = ContentAlignment.MiddleLeft;
+            btnStats.Location = new Point(0, 0);
+            btnStats.Margin = new Padding(0);
+            btnStats.Name = "btnStats";
+            btnStats.Size = new Size(180, 45);
+            btnStats.TabIndex = 1;
+            btnStats.Text = "Stats";
+            btnStats.UseVisualStyleBackColor = true;
+            btnStats.Click += btnStats_Click;
             // 
             // panel6
             // 
@@ -254,9 +255,9 @@
             // panelMenu
             // 
             panelMenu.Dock = DockStyle.Fill;
-            panelMenu.Location = new Point(180, 35);
+            panelMenu.Location = new Point(43, 35);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(791, 632);
+            panelMenu.Size = new Size(928, 632);
             panelMenu.TabIndex = 20;
             // 
             // AdminMenuUI
@@ -300,7 +301,7 @@
         private Panel panel3;
         private Button btnMail;
         private Panel panel4;
-        private Button btnProfile;
+        private Button btnStats;
         private Panel panelMenu;
         private Panel panel6;
         private Button btnSettings;

@@ -20,6 +20,7 @@ namespace NoteWorthy
             dgvBookmark.AutoGenerateColumns = false;
             dgvBookmark.EnableHeadersVisualStyles = false;
             dgvBookmark.Columns["BookmarkID"].Visible = false;
+            dgvBookmark.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             cmbFilter.SelectedIndex = 0;
 
             this.BringToFront();
@@ -50,7 +51,8 @@ namespace NoteWorthy
         {
             dt = dbHelper.GetBookmarks();
             dgvBookmark.DataSource = dt;
-            dgvBookmark.Columns["Favorite"].ReadOnly = false;
+
+
         }
         private void btnNewbookmark_Click(object sender, EventArgs e)
         {
@@ -147,7 +149,7 @@ namespace NoteWorthy
                 if (success)
                 {
                     MessageBox.Show("Favorite status updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadBookmarks(); 
+                    LoadBookmarks();
                 }
                 else
                 {
@@ -157,6 +159,24 @@ namespace NoteWorthy
             else
             {
                 MessageBox.Show("Please select a bookmark to toggle favorite status.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRate_Click(object sender, EventArgs e)
+        {
+            if(dgvBookmark.SelectedRows.Count>0)
+            {
+                DataGridViewRow selectedRow = dgvBookmark.SelectedRows[0];
+                int bookmarkID = Convert.ToInt32(selectedRow.Cells["BookmarkID"].Value);
+                string title = selectedRow.Cells["Title"].Value.ToString();
+                Rating rate = new Rating(title,bookmarkID);
+                rate.ShowDialog();
+                clearSelection();
+                LoadBookmarks();
+            }
+            else
+            {
+                MessageBox.Show("Please select a bookmark to rate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

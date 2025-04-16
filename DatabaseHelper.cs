@@ -122,7 +122,7 @@ namespace NoteWorthy
                 myConn = new OleDbConnection(ConnectionString);
                 myConn.Open();
 
-                string query = "SELECT bookmarkID ,Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, favorite FROM Bookmarks WHERE UserID = @userID";
+                string query = "SELECT bookmarkID ,Title, Genre, Volume, Edition, Chapter, PageNumber, Author, DateAdded, favorite, Rating FROM Bookmarks WHERE UserID = @userID";
 
                 cmd = new OleDbCommand(query, myConn);
                 cmd.Parameters.AddWithValue("@userID", SessionManager.CurrentUserID);
@@ -397,5 +397,90 @@ namespace NoteWorthy
 
             return dt;
         }
+        public void UpdateFeedbackStatus(string feedbackID, bool newStatus)
+        {
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    string query = "UPDATE Feedbacks SET status = ? WHERE feedbackID = ?";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("?", OleDbType.Boolean).Value = newStatus;
+                        cmd.Parameters.Add("?", OleDbType.Integer).Value = Convert.ToInt32(feedbackID);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating feedback status: " + ex.Message);
+            }
+        }
+        public bool DeleteFeedback(string feedbackID)
+        {
+            bool success = false;
+
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    string query = "DELETE FROM Feedbacks WHERE feedbackID = ?";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("?", OleDbType.Integer).Value = Convert.ToInt32(feedbackID);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        success = rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting feedback: " + ex.Message);
+            }
+
+            return success;
+        }
+        public void RateBookmark(int bookmarkID,int rating)
+        {
+            try
+            {
+                using (OleDbConnection myConn = new OleDbConnection(ConnectionString))
+                {
+                    myConn.Open();
+
+                    string query = "UPDATE Bookmarks SET Rating = ? WHERE BookmarkID = ?";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
+                    {
+                        cmd.Parameters.AddWithValue("?", rating);
+                        cmd.Parameters.AddWithValue("?", bookmarkID);
+
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Bookmark updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update bookmark.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
 }

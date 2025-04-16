@@ -44,18 +44,20 @@
             lblUser.TabIndex = 0;
             lblUser.Text = "From: <username>";
             lblUser.TextAlign = ContentAlignment.MiddleLeft;
+            lblUser.Click += FeedbackCard_Click;
             // 
             // lblD
             // 
             lblD.AutoSize = true;
             lblD.Font = new Font("Century Gothic", 9F);
-            lblD.Location = new Point(146, 95);
+            lblD.Location = new Point(289, 2);
             lblD.Name = "lblD";
             lblD.RightToLeft = RightToLeft.No;
             lblD.Size = new Size(52, 17);
             lblD.TabIndex = 1;
             lblD.Text = "ID: <ID>";
             lblD.TextAlign = ContentAlignment.MiddleRight;
+            lblD.Click += FeedbackCard_Click;
             // 
             // lblSubject
             // 
@@ -67,6 +69,7 @@
             lblSubject.TabIndex = 2;
             lblSubject.Text = "Subject: <Subject>";
             lblSubject.TextAlign = ContentAlignment.MiddleLeft;
+            lblSubject.Click += FeedbackCard_Click;
             // 
             // lblStatus
             // 
@@ -74,10 +77,12 @@
             lblStatus.Font = new Font("Century Gothic", 10F);
             lblStatus.Location = new Point(0, 93);
             lblStatus.Name = "lblStatus";
+            lblStatus.RightToLeft = RightToLeft.No;
             lblStatus.Size = new Size(148, 19);
             lblStatus.TabIndex = 3;
             lblStatus.Text = "Status: read/unread";
             lblStatus.TextAlign = ContentAlignment.MiddleLeft;
+            lblStatus.Click += FeedbackCard_Click;
             // 
             // FeedbackCard
             // 
@@ -92,7 +97,7 @@
             Name = "FeedbackCard";
             Size = new Size(344, 112);
             Load += FeedbackCard_Load;
-            Click += this.FeedbackCard_Click;
+            Click += FeedbackCard_Click;
             ResumeLayout(false);
             PerformLayout();
         }
