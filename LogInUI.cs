@@ -41,22 +41,33 @@ namespace NoteWorthy
 
             if (userID != null)
             {
-
                 SessionManager.CurrentUserID = userID;
                 SessionManager.CurrentUsername = username;
 
                 MessageBox.Show($"Welcome, {username}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                MenuUI Menu = new MenuUI();
-                Menu.Show();
-                if (this.Owner is StartUpUI startup)
+                if (userID == 1)
                 {
-                    startup.Hide();
-                    
-                }
-                this.Close();
+                    AdminMenuUI admin = new AdminMenuUI();
+                    admin.Show();
+                    if (this.Owner is StartUpUI startup)
+                    {
+                        startup.Hide();
 
+                    }
+                    this.Close();
+                }
+                else
+                {
+                    MenuUI Menu = new MenuUI();
+                    Menu.Show();
+                    if (this.Owner is StartUpUI startup)
+                    {
+                        startup.Hide();
+
+                    }
+                    this.Close();
+                }
             }
             else
             {

@@ -114,7 +114,7 @@ namespace NoteWorthy
             SwitchPanel(settings);
         }
         public void logOutHere()
-        {
+            {
             StartUpUI startup = new StartUpUI();
             SessionManager.ClearSession();
             startup.Show();
