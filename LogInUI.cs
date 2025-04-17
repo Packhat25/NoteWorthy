@@ -53,7 +53,6 @@ namespace NoteWorthy
                     if (this.Owner is StartUpUI startup)
                     {
                         startup.Hide();
-
                     }
                     this.Close();
                 }
@@ -64,7 +63,6 @@ namespace NoteWorthy
                     if (this.Owner is StartUpUI startup)
                     {
                         startup.Hide();
-
                     }
                     this.Close();
                 }

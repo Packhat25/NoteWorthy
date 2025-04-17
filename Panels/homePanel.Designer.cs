@@ -46,7 +46,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             flowLayoutPanelRecent = new FlowLayoutPanel();
             flpFavorites = new FlowLayoutPanel();
-            flpRecommendation = new FlowLayoutPanel();
+            flpTopRated = new FlowLayoutPanel();
             panel7 = new Panel();
             basePanel1 = new basePanel();
             panel4 = new Panel();
@@ -142,6 +142,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.5F));
@@ -224,15 +225,15 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 1;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Controls.Add(tableLayoutPanel2, 0, 0);
-            tableLayoutPanel4.Controls.Add(flpRecommendation, 0, 1);
+            tableLayoutPanel4.Controls.Add(flpTopRated, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 55F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 45F));
             tableLayoutPanel4.Size = new Size(777, 367);
             tableLayoutPanel4.TabIndex = 3;
             // 
@@ -248,7 +249,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(771, 177);
+            tableLayoutPanel2.Size = new Size(771, 195);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // flowLayoutPanelRecent
@@ -257,30 +258,33 @@
             flowLayoutPanelRecent.Dock = DockStyle.Fill;
             flowLayoutPanelRecent.Location = new Point(3, 3);
             flowLayoutPanelRecent.Name = "flowLayoutPanelRecent";
-            flowLayoutPanelRecent.Size = new Size(379, 171);
+            flowLayoutPanelRecent.Size = new Size(379, 189);
             flowLayoutPanelRecent.TabIndex = 0;
             // 
             // flpFavorites
             // 
+            flpFavorites.AutoScroll = true;
             flpFavorites.BackColor = Color.FromArgb(5, 102, 141);
             flpFavorites.Dock = DockStyle.Fill;
             flpFavorites.Location = new Point(388, 3);
             flpFavorites.Name = "flpFavorites";
-            flpFavorites.Size = new Size(380, 171);
+            flpFavorites.Size = new Size(380, 189);
             flpFavorites.TabIndex = 1;
             // 
-            // flpRecommendation
+            // flpTopRated
             // 
-            flpRecommendation.BackColor = Color.FromArgb(5, 102, 141);
-            flpRecommendation.Dock = DockStyle.Fill;
-            flpRecommendation.Location = new Point(3, 186);
-            flpRecommendation.Name = "flpRecommendation";
-            flpRecommendation.Size = new Size(771, 178);
-            flpRecommendation.TabIndex = 3;
+            flpTopRated.AutoScroll = true;
+            flpTopRated.BackColor = Color.FromArgb(5, 102, 141);
+            flpTopRated.Dock = DockStyle.Fill;
+            flpTopRated.Location = new Point(3, 204);
+            flpTopRated.Name = "flpTopRated";
+            flpTopRated.Padding = new Padding(0, 3, 0, 0);
+            flpTopRated.Size = new Size(771, 160);
+            flpTopRated.TabIndex = 3;
             // 
             // panel7
             // 
-            panel7.BackColor = Color.FromArgb(169, 211, 255);
+            panel7.BackColor = Color.Transparent;
             panel7.Controls.Add(tableLayoutPanel1);
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(55, 134);
@@ -297,7 +301,7 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(252, 204, 197);
+            panel4.BackColor = Color.Transparent;
             panel4.Controls.Add(basePanel1);
             panel4.Dock = DockStyle.Bottom;
             panel4.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -361,6 +365,6 @@
         private Panel panel4;
         private Label lblReco;
         private FlowLayoutPanel flpFavorites;
-        private FlowLayoutPanel flpRecommendation;
+        private FlowLayoutPanel flpTopRated;
     }
 }

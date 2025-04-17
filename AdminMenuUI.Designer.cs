@@ -34,23 +34,20 @@
             btnMax = new Button();
             btnExit = new Button();
             btnMinimized = new Button();
-            btnHome = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
             sidepanel = new FlowLayoutPanel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            btnMail = new Button();
             panel4 = new Panel();
             btnStats = new Button();
+            panel3 = new Panel();
+            btnMail = new Button();
             panel6 = new Panel();
             btnSettings = new Button();
             panelMenu = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHam).BeginInit();
             sidepanel.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel3.SuspendLayout();
             panel6.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,24 +124,6 @@
             btnMinimized.UseVisualStyleBackColor = false;
             btnMinimized.Click += btnMinimized_Click;
             // 
-            // btnHome
-            // 
-            btnHome.BackgroundImageLayout = ImageLayout.Zoom;
-            btnHome.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHome.ForeColor = Color.White;
-            btnHome.Image = Properties.Resources.homeicon3;
-            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(0, 0);
-            btnHome.Margin = new Padding(0);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(180, 45);
-            btnHome.TabIndex = 1;
-            btnHome.Text = "Home";
-            btnHome.UseVisualStyleBackColor = true;
-            btnHome.Click += btnHome_Click;
-            // 
             // sidebarTransition
             // 
             sidebarTransition.Interval = 10;
@@ -153,25 +132,43 @@
             // sidepanel
             // 
             sidepanel.BackColor = Color.FromArgb(91, 72, 87);
-            sidepanel.Controls.Add(panel2);
-            sidepanel.Controls.Add(panel3);
             sidepanel.Controls.Add(panel4);
+            sidepanel.Controls.Add(panel3);
             sidepanel.Controls.Add(panel6);
             sidepanel.Dock = DockStyle.Left;
             sidepanel.Location = new Point(0, 35);
             sidepanel.MaximumSize = new Size(180, 0);
             sidepanel.MinimumSize = new Size(43, 0);
             sidepanel.Name = "sidepanel";
-            sidepanel.Size = new Size(43, 632);
+            sidepanel.Size = new Size(180, 632);
             sidepanel.TabIndex = 1;
             // 
-            // panel2
+            // panel4
             // 
-            panel2.Controls.Add(btnHome);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(180, 45);
-            panel2.TabIndex = 2;
+            panel4.Anchor = AnchorStyles.Bottom;
+            panel4.Controls.Add(btnStats);
+            panel4.Location = new Point(3, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(180, 45);
+            panel4.TabIndex = 4;
+            // 
+            // btnStats
+            // 
+            btnStats.BackgroundImageLayout = ImageLayout.Zoom;
+            btnStats.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
+            btnStats.FlatStyle = FlatStyle.Flat;
+            btnStats.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStats.ForeColor = Color.White;
+            btnStats.Image = Properties.Resources.StatsIcon;
+            btnStats.ImageAlign = ContentAlignment.MiddleLeft;
+            btnStats.Location = new Point(0, 0);
+            btnStats.Margin = new Padding(0);
+            btnStats.Name = "btnStats";
+            btnStats.Size = new Size(180, 45);
+            btnStats.TabIndex = 1;
+            btnStats.Text = "Stats";
+            btnStats.UseVisualStyleBackColor = true;
+            btnStats.Click += btnStats_Click;
             // 
             // panel3
             // 
@@ -195,41 +192,14 @@
             btnMail.Name = "btnMail";
             btnMail.Size = new Size(180, 45);
             btnMail.TabIndex = 1;
-            btnMail.Text = "Mail";
+            btnMail.Text = "Mailbox";
             btnMail.UseVisualStyleBackColor = true;
             btnMail.Click += btnMail_Click;
-            // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.Bottom;
-            panel4.Controls.Add(btnStats);
-            panel4.Location = new Point(3, 105);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(180, 45);
-            panel4.TabIndex = 4;
-            // 
-            // btnStats
-            // 
-            btnStats.BackgroundImageLayout = ImageLayout.Zoom;
-            btnStats.FlatAppearance.BorderColor = Color.FromArgb(91, 72, 87);
-            btnStats.FlatStyle = FlatStyle.Flat;
-            btnStats.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnStats.ForeColor = Color.White;
-            btnStats.Image = Properties.Resources.StatsIcon;
-            btnStats.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStats.Location = new Point(0, 0);
-            btnStats.Margin = new Padding(0);
-            btnStats.Name = "btnStats";
-            btnStats.Size = new Size(180, 45);
-            btnStats.TabIndex = 1;
-            btnStats.Text = "Stats";
-            btnStats.UseVisualStyleBackColor = true;
-            btnStats.Click += btnStats_Click;
             // 
             // panel6
             // 
             panel6.Controls.Add(btnSettings);
-            panel6.Location = new Point(3, 156);
+            panel6.Location = new Point(3, 105);
             panel6.Name = "panel6";
             panel6.Size = new Size(180, 45);
             panel6.TabIndex = 6;
@@ -255,9 +225,9 @@
             // panelMenu
             // 
             panelMenu.Dock = DockStyle.Fill;
-            panelMenu.Location = new Point(43, 35);
+            panelMenu.Location = new Point(180, 35);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(928, 632);
+            panelMenu.Size = new Size(791, 632);
             panelMenu.TabIndex = 20;
             // 
             // AdminMenuUI
@@ -280,9 +250,8 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnHam).EndInit();
             sidepanel.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel6.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -290,14 +259,12 @@
         #endregion
 
         private Panel panel1;
-        private Button btnHome;
         private Button btnMax;
         private Button btnMinimized;
         private Button btnExit;
         private System.Windows.Forms.Timer sidebarTransition;
         private PictureBox btnHam;
         private FlowLayoutPanel sidepanel;
-        private Panel panel2;
         private Panel panel3;
         private Button btnMail;
         private Panel panel4;

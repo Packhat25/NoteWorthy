@@ -481,6 +481,83 @@ namespace NoteWorthy
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+        public DataTable GetTopRatedBookmarks()
+        {
+            DataTable dt = new DataTable();
 
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    string query = @"
+                SELECT TOP 5 Title, AVG(Rating) AS AvgRating, COUNT(*) AS ReviewCount
+                FROM Bookmarks
+                WHERE Rating IS NOT NULL
+                GROUP BY Title
+                ORDER BY AVG(Rating) DESC";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching top rated bookmarks: " + ex.Message);
+            }
+
+            return dt;
+        }
+        public bool DeleteAccount(int userID)
+        {
+            bool success = false;
+
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string query = "DELETE FROM Users WHERE userID = ?";
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("?", OleDbType.Integer).Value = userID;
+
+                        int result = cmd.ExecuteNonQuery();
+                        success = result > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting account: " + ex.Message);
+            }
+
+            return success;
+        }
+        public DataTable GetGenreDistribution()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT Genre, COUNT(*) AS [Count] FROM Bookmarks GROUP BY Genre";
+
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    conn.Open();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+    }
 }

@@ -167,6 +167,7 @@
             btnDeleteacc.TabIndex = 3;
             btnDeleteacc.Text = "Delete account";
             btnDeleteacc.UseVisualStyleBackColor = false;
+            btnDeleteacc.Click += btnDeleteacc_Click;
             // 
             // btnFeedback
             // 

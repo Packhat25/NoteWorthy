@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteWorthy.Panels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +19,15 @@ namespace NoteWorthy
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.BringToFront();
+            flpTopRated.FlowDirection = FlowDirection.LeftToRight;
+            flpTopRated.WrapContents = false;
         }
         private void homePanel_Load(object sender, EventArgs e)
         {
             lblWelcome.Text = $"Welcome, {SessionManager.CurrentUsername} ";
             LoadRecentBookmarks();
             LoadFavoriteBookmarks();
+            LoadTopRatedBookmarks();
         }
         private void LoadRecentBookmarks()
         {
@@ -113,6 +117,21 @@ namespace NoteWorthy
                 {
                     lbl.Font = new Font("Century Gothic", newFontSize);
                 }
+            }
+        }
+        private void LoadTopRatedBookmarks()
+        {
+            DataTable topBookmarks = dbHelper.GetTopRatedBookmarks();
+
+            foreach (DataRow row in topBookmarks.Rows)
+            {
+                string title = row["Title"].ToString();
+                double avgRating = Convert.ToDouble(row["AvgRating"]);
+                int reviewCount = Convert.ToInt32(row["ReviewCount"]);
+
+                ratingCard card = new ratingCard();
+                card.SetTopRatedDetails(title, avgRating, reviewCount);
+                flpTopRated.Controls.Add(card);
             }
         }
     }

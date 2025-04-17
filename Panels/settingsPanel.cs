@@ -39,8 +39,29 @@ namespace NoteWorthy
 
         private void btnFeedback_Click(object sender, EventArgs e)
         {
-            sendFeedback sendFeedback= new sendFeedback();
+            sendFeedback sendFeedback = new sendFeedback();
             sendFeedback.ShowDialog();
+        }
+
+        private void btnDeleteacc_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete your account? This action cannot be undone.","Confirm Delete", MessageBoxButtons.YesNo,MessageBoxIcon.Warning );
+
+            if (confirm == DialogResult.Yes)
+            {
+                if (dbHelper.DeleteAccount((int)SessionManager.CurrentUserID))
+                {
+                    MessageBox.Show("Account deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbHelper.DeleteAllBookmarksForUser();
+                    LogoutRequested?.Invoke();
+                    SessionManager.ClearSession();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

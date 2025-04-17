@@ -30,6 +30,8 @@
         {
             panel1 = new Panel();
             flpFeedbacks = new FlowLayoutPanel();
+            panel7 = new Panel();
+            label1 = new Label();
             panel3 = new Panel();
             panel2 = new Panel();
             panel4 = new Panel();
@@ -45,6 +47,7 @@
             tbxBody = new TextBox();
             lblSubject = new Label();
             lblFrom = new Label();
+            panel7.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -69,21 +72,43 @@
             flpFeedbacks.Size = new Size(928, 142);
             flpFeedbacks.TabIndex = 5;
             // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(5, 102, 141);
+            panel7.Controls.Add(label1);
+            panel7.Dock = DockStyle.Top;
+            panel7.Location = new Point(0, 0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(928, 36);
+            panel7.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(119, 33);
+            label1.TabIndex = 1;
+            label1.Text = "Mailbox";
+            // 
             // panel3
             // 
             panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(883, 0);
+            panel3.Location = new Point(883, 36);
             panel3.Name = "panel3";
-            panel3.Size = new Size(45, 455);
-            panel3.TabIndex = 7;
+            panel3.Size = new Size(45, 419);
+            panel3.TabIndex = 12;
             // 
             // panel2
             // 
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(0, 36);
             panel2.Name = "panel2";
-            panel2.Size = new Size(45, 455);
-            panel2.TabIndex = 8;
+            panel2.Size = new Size(45, 419);
+            panel2.TabIndex = 13;
             // 
             // panel4
             // 
@@ -94,17 +119,17 @@
             panel4.Controls.Add(lblSubject);
             panel4.Controls.Add(lblFrom);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(45, 0);
+            panel4.Location = new Point(45, 36);
             panel4.Name = "panel4";
-            panel4.Size = new Size(838, 455);
-            panel4.TabIndex = 9;
+            panel4.Size = new Size(838, 419);
+            panel4.TabIndex = 14;
             // 
             // lblDate
             // 
             lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Century Gothic", 10F);
-            lblDate.Location = new Point(767, 11);
+            lblDate.Location = new Point(2133, 11);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(63, 19);
             lblDate.TabIndex = 5;
@@ -124,7 +149,7 @@
             // 
             panel5.Controls.Add(tableLayoutPanel1);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 393);
+            panel5.Location = new Point(0, 357);
             panel5.Name = "panel5";
             panel5.Size = new Size(838, 62);
             panel5.TabIndex = 3;
@@ -176,7 +201,6 @@
             btnChangeStatus.TabIndex = 6;
             btnChangeStatus.Text = "Mark as Unread/Read";
             btnChangeStatus.UseVisualStyleBackColor = false;
-            btnChangeStatus.Click += btnChangeStatus_Click;
             // 
             // btnDelete
             // 
@@ -195,7 +219,6 @@
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // panel6
             // 
@@ -224,10 +247,9 @@
             tbxBody.Multiline = true;
             tbxBody.Name = "tbxBody";
             tbxBody.ReadOnly = true;
-            tbxBody.Size = new Size(826, 231);
+            tbxBody.Size = new Size(2192, 869);
             tbxBody.TabIndex = 2;
             tbxBody.TabStop = false;
-            tbxBody.Enter += tbxBody_Enter;
             // 
             // lblSubject
             // 
@@ -256,10 +278,13 @@
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel3);
+            Controls.Add(panel7);
             Controls.Add(flpFeedbacks);
             Controls.Add(panel1);
             Name = "feedbackPanel";
             Size = new Size(928, 632);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
@@ -273,20 +298,22 @@
         #endregion
         private Panel panel1;
         private FlowLayoutPanel flpFeedbacks;
+        private Panel panel7;
+        private Label label1;
         private Panel panel3;
         private Panel panel2;
         private Panel panel4;
-        private Panel panel5;
-        private TextBox tbxBody;
-        private Label lblSubject;
-        private Label lblFrom;
+        private Label lblDate;
         private Label lblFeedbackID;
+        private Panel panel5;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnChangeStatus;
         private Button btnDelete;
         private Panel panel6;
         private Label lblStatus;
-        private Label lblDate;
+        private TextBox tbxBody;
+        private Label lblSubject;
+        private Label lblFrom;
     }
 }

@@ -31,7 +31,7 @@ namespace NoteWorthy
         private void MenuUI_Load(object sender, EventArgs e)
         {
             sidepanel.Width = 43;
-            SwitchPanel(new homePanel());
+            SwitchPanel(new statistics());
         }
 
         private void btnExit_Click_2(object sender, EventArgs e)
@@ -86,10 +86,9 @@ namespace NoteWorthy
             sidebarTransition.Start();
         }
 
-        private homePanel HomePanel;
-        private bookmarkPanel bookmarkPanel;
         private settingsPanel settingsPanel;
         private feedbackPanel feedbackPanel;
+        private statistics statistics;
         private void SwitchPanel(UserControl newPanel)
         {
             panelMenu.Controls.Clear();
@@ -101,10 +100,6 @@ namespace NoteWorthy
         {
             SwitchPanel(new feedbackPanel());
         }
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            SwitchPanel(new homePanel());
-        }
         private void btnSettings_Click(object sender, EventArgs e)
         {
             settingsPanel settings = new settingsPanel();
@@ -114,7 +109,7 @@ namespace NoteWorthy
             SwitchPanel(settings);
         }
         public void logOutHere()
-            {
+        {
             StartUpUI startup = new StartUpUI();
             SessionManager.ClearSession();
             startup.Show();
@@ -132,7 +127,7 @@ namespace NoteWorthy
 
         private void btnStats_Click(object sender, EventArgs e)
         {
-
+            SwitchPanel(new statistics());
         }
     }
 }
