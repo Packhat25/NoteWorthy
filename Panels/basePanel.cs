@@ -19,4 +19,14 @@ namespace NoteWorthy
             dbHelper = new DatabaseHelper();
         }
     }
+
+    public partial class CopyOfbasePanel : UserControl
+    {
+        protected DatabaseHelper dbHelper;
+        public CopyOfbasePanel()
+        {
+            InitializeComponent();
+            dbHelper = new DatabaseHelper();
+        }
+    }
 }

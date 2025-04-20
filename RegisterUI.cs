@@ -24,7 +24,7 @@ namespace NoteWorthy
         int i;
         private void RegisterUI_Load(object sender, EventArgs e)
         {
-            i = StartUpUI.parentX + 150;// final loc
+            i = StartUpUI.parentX + 150;
             this.Location = new Point(StartUpUI.parentX + 250, StartUpUI.parentY + 100);
         }
 
@@ -33,6 +33,7 @@ namespace NoteWorthy
             string username = tbxUsername.Text.Trim();
             string password = tbxPassword.Text;
             string confirmPass = tbxConfirmPass.Text;
+            string email = tbxEmail.Text.Trim();
             if (username == "" || password == "" || confirmPass == "")
             {
                 MessageBox.Show("Fields Cannot Be Empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -53,7 +54,7 @@ namespace NoteWorthy
                     tbxUsername.Clear();
                     return;
                 }
-                dbHelper.register(username, password);
+                dbHelper.register(username, password, email);
                 this.Opacity = 0;
                 this.Close();
                 if(this.Owner is StartUpUI startup)

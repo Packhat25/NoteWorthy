@@ -57,5 +57,10 @@ namespace NoteWorthy
 
             return 0;
         }
+        public static string GenerateCode()
+        {
+            Random rnd = new Random();
+            return rnd.Next(100000, 999999).ToString(); // 6-digit code
+        }
     }    
 }

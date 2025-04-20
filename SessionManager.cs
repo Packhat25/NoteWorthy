@@ -10,11 +10,12 @@ namespace NoteWorthy
     {
         public static int? CurrentUserID { get; set; }
         public static string? CurrentUsername { get; set; }
-
+        public static string? CurrentCode { get; set; }
         public static void ClearSession()
         {
             CurrentUserID = null;
             CurrentUsername = null;
+            CurrentCode =null;
         }
     }
 

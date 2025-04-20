@@ -24,8 +24,7 @@ namespace NoteWorthy
         DataSet? ds;
         private static string? DatabasePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "Database", "BookmarkProject.accdb");       
         private static string? ConnectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={DatabasePath};";
-
-        public void register(string username, string password)
+        public void register(string username, string password, string email)
         {
             string hashedPassword = Utilities.HashPassword(password);
             {
@@ -34,13 +33,14 @@ namespace NoteWorthy
                     try
                     {
                         myConn.Open();
-                        string query = "INSERT INTO Users (Username, [Password], DateCreated) VALUES (?, ?, ?)";
+                        string query = "INSERT INTO Users (Username, [Password], DateCreated, Email) VALUES (?, ?, ?, ?)";
 
                         using (cmd = new OleDbCommand(query, myConn))
                         {
                             cmd.Parameters.AddWithValue("?", username);
                             cmd.Parameters.AddWithValue("?", hashedPassword);
                             cmd.Parameters.AddWithValue("?", DateTime.Now.Date);
+                            cmd.Parameters.AddWithValue("?", email);
 
                             int result = cmd.ExecuteNonQuery();
 
@@ -284,7 +284,7 @@ namespace NoteWorthy
                     int rowsAffected = cmd.ExecuteNonQuery();
                     conn.Close();
 
-                    MessageBox.Show($"{rowsAffected} bookmark(s) deleted for User ID {SessionManager.CurrentUserID}.");
+                    MessageBox.Show($"{rowsAffected} bookmark(s) deleted");
                 }
             }
         }
@@ -558,6 +558,74 @@ namespace NoteWorthy
             }
 
             return dt;
+        }
+        public bool ValidateUserEmail(string username, string email)
+        {
+            bool isValid = false;
+
+            string query = "SELECT COUNT(*) FROM Users WHERE Username = ? AND Email = ?";
+
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?", username);
+                    cmd.Parameters.AddWithValue("?", email);
+
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    conn.Close();
+
+                    isValid = count > 0;
+                }
+            }
+
+            return isValid;
+        }
+        public bool UpdatePassword(string username, string newPassword)
+        {
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                string hashpassword = Utilities.HashPassword(newPassword);
+                conn.Open();
+                string query = "UPDATE Users SET [Password] = ? WHERE Username = ?";
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?", hashpassword);
+                    cmd.Parameters.AddWithValue("?", username);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public DataRow GetMostBookmarked()
+        {
+            string query = @"SELECT TOP 1 Title, COUNT(*) AS BookmarkCount
+                     FROM Bookmarks
+                     GROUP BY Title
+                     ORDER BY COUNT(*) DESC";
+
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                conn.Open();
+                OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+            }
+        }
+        public int GetTotalUsers()
+        {
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Users";
+
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    int total = (int)cmd.ExecuteScalar();
+                    return total;
+                }
+            }
         }
     }
 }

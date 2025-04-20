@@ -42,6 +42,8 @@
             animateTimer = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            linklblForgotpass = new LinkLabel();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -56,7 +58,7 @@
             tbxPassword.ForeColor = Color.Black;
             tbxPassword.Location = new Point(331, 309);
             tbxPassword.Name = "tbxPassword";
-            tbxPassword.Size = new Size(293, 26);
+            tbxPassword.Size = new Size(346, 26);
             tbxPassword.TabIndex = 2;
             tbxPassword.UseSystemPasswordChar = true;
             // 
@@ -68,7 +70,7 @@
             tbxUsername.ForeColor = Color.Black;
             tbxUsername.Location = new Point(331, 250);
             tbxUsername.Name = "tbxUsername";
-            tbxUsername.Size = new Size(293, 26);
+            tbxUsername.Size = new Size(346, 26);
             tbxUsername.TabIndex = 1;
             // 
             // btnLogIn
@@ -187,6 +189,26 @@
             pictureBox2.TabIndex = 25;
             pictureBox2.TabStop = false;
             // 
+            // linklblForgotpass
+            // 
+            linklblForgotpass.AutoSize = true;
+            linklblForgotpass.Location = new Point(493, 402);
+            linklblForgotpass.Name = "linklblForgotpass";
+            linklblForgotpass.Size = new Size(59, 15);
+            linklblForgotpass.TabIndex = 26;
+            linklblForgotpass.TabStop = true;
+            linklblForgotpass.Text = "Click here";
+            linklblForgotpass.LinkClicked += linklblForgotpass_LinkClicked;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(396, 402);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 15);
+            label4.TabIndex = 27;
+            label4.Text = "Forgot password?";
+            // 
             // LogInUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -194,6 +216,8 @@
             AutoSize = true;
             BackColor = Color.FromArgb(252, 204, 197);
             ClientSize = new Size(701, 478);
+            Controls.Add(label4);
+            Controls.Add(linklblForgotpass);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnExit);
@@ -236,5 +260,7 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
+        private LinkLabel linklblForgotpass;
+        private Label label4;
     }
 }

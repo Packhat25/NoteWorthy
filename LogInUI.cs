@@ -12,7 +12,7 @@ namespace NoteWorthy
         public LogInUI()
         {
             InitializeComponent();
-            
+
             this.ShowInTaskbar = false;
 
         }
@@ -36,7 +36,7 @@ namespace NoteWorthy
         {
             string username = tbxUsername.Text.Trim();
             string password = tbxPassword.Text;
-           
+
             int? userID = dbHelper.LogIN(username, password);
 
             if (userID != null)
@@ -69,7 +69,7 @@ namespace NoteWorthy
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);               
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbxPassword.Clear();
                 tbxUsername.Clear();
             }
@@ -111,6 +111,12 @@ namespace NoteWorthy
             {
                 animateTimer.Stop();
             }
+        }
+
+        private void linklblForgotpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            forgotPassUI forgotpass = new forgotPassUI();
+            forgotpass.ShowDialog();
         }
     }
 }
