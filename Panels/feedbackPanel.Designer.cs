@@ -35,8 +35,12 @@
             panel3 = new Panel();
             panel2 = new Panel();
             panel4 = new Panel();
-            lblDate = new Label();
+            tbxBody = new TextBox();
+            panel8 = new Panel();
             lblFeedbackID = new Label();
+            lblFrom = new Label();
+            lblSubject = new Label();
+            lblDate = new Label();
             panel5 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -44,11 +48,9 @@
             btnDelete = new Button();
             panel6 = new Panel();
             lblStatus = new Label();
-            tbxBody = new TextBox();
-            lblSubject = new Label();
-            lblFrom = new Label();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
+            panel8.SuspendLayout();
             panel5.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -112,38 +114,80 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(lblDate);
-            panel4.Controls.Add(lblFeedbackID);
-            panel4.Controls.Add(panel5);
             panel4.Controls.Add(tbxBody);
-            panel4.Controls.Add(lblSubject);
-            panel4.Controls.Add(lblFrom);
+            panel4.Controls.Add(panel8);
+            panel4.Controls.Add(panel5);
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(45, 36);
             panel4.Name = "panel4";
             panel4.Size = new Size(838, 419);
             panel4.TabIndex = 14;
             // 
-            // lblDate
+            // tbxBody
             // 
-            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblDate.AutoSize = true;
-            lblDate.Font = new Font("Century Gothic", 10F);
-            lblDate.Location = new Point(2133, 11);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(63, 19);
-            lblDate.TabIndex = 5;
-            lblDate.Text = "<Date >";
+            tbxBody.Dock = DockStyle.Fill;
+            tbxBody.Font = new Font("Century Gothic", 11F);
+            tbxBody.Location = new Point(0, 113);
+            tbxBody.Multiline = true;
+            tbxBody.Name = "tbxBody";
+            tbxBody.ReadOnly = true;
+            tbxBody.Size = new Size(838, 244);
+            tbxBody.TabIndex = 7;
+            tbxBody.TabStop = false;
+            tbxBody.Enter += tbxBody_Enter;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(lblFeedbackID);
+            panel8.Controls.Add(lblFrom);
+            panel8.Controls.Add(lblDate);
+            panel8.Controls.Add(lblSubject);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(838, 113);
+            panel8.TabIndex = 6;
             // 
             // lblFeedbackID
             // 
             lblFeedbackID.AutoSize = true;
             lblFeedbackID.Font = new Font("Century Gothic", 10F);
-            lblFeedbackID.Location = new Point(6, 11);
+            lblFeedbackID.Location = new Point(6, 3);
             lblFeedbackID.Name = "lblFeedbackID";
             lblFeedbackID.Size = new Size(46, 19);
             lblFeedbackID.TabIndex = 4;
             lblFeedbackID.Text = "ID: <>";
+            // 
+            // lblFrom
+            // 
+            lblFrom.AutoSize = true;
+            lblFrom.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFrom.Location = new Point(13, 37);
+            lblFrom.Name = "lblFrom";
+            lblFrom.Size = new Size(179, 22);
+            lblFrom.TabIndex = 0;
+            lblFrom.Text = "From: <username>";
+            // 
+            // lblSubject
+            // 
+            lblSubject.AutoSize = true;
+            lblSubject.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSubject.Location = new Point(13, 81);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(195, 24);
+            lblSubject.TabIndex = 1;
+            lblSubject.Text = "Subject: <subject>";
+            // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.Font = new Font("Century Gothic", 10F);
+            lblDate.Location = new Point(753, 3);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(63, 19);
+            lblDate.TabIndex = 5;
+            lblDate.Text = "<Date >";
             // 
             // panel5
             // 
@@ -201,6 +245,7 @@
             btnChangeStatus.TabIndex = 6;
             btnChangeStatus.Text = "Mark as Unread/Read";
             btnChangeStatus.UseVisualStyleBackColor = false;
+            btnChangeStatus.Click += btnChangeStatus_Click;
             // 
             // btnDelete
             // 
@@ -219,6 +264,7 @@
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // panel6
             // 
@@ -239,38 +285,6 @@
             lblStatus.TabIndex = 5;
             lblStatus.Text = "Status: <read/unread>";
             // 
-            // tbxBody
-            // 
-            tbxBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbxBody.Font = new Font("Century Gothic", 11F);
-            tbxBody.Location = new Point(6, 156);
-            tbxBody.Multiline = true;
-            tbxBody.Name = "tbxBody";
-            tbxBody.ReadOnly = true;
-            tbxBody.Size = new Size(2192, 869);
-            tbxBody.TabIndex = 2;
-            tbxBody.TabStop = false;
-            // 
-            // lblSubject
-            // 
-            lblSubject.AutoSize = true;
-            lblSubject.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSubject.Location = new Point(16, 92);
-            lblSubject.Name = "lblSubject";
-            lblSubject.Size = new Size(195, 24);
-            lblSubject.TabIndex = 1;
-            lblSubject.Text = "Subject: <subject>";
-            // 
-            // lblFrom
-            // 
-            lblFrom.AutoSize = true;
-            lblFrom.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFrom.Location = new Point(16, 48);
-            lblFrom.Name = "lblFrom";
-            lblFrom.Size = new Size(179, 22);
-            lblFrom.TabIndex = 0;
-            lblFrom.Text = "From: <username>";
-            // 
             // feedbackPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -287,6 +301,8 @@
             panel7.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             panel5.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -312,8 +328,9 @@
         private Button btnDelete;
         private Panel panel6;
         private Label lblStatus;
-        private TextBox tbxBody;
         private Label lblSubject;
         private Label lblFrom;
+        private TextBox tbxBody;
+        private Panel panel8;
     }
 }

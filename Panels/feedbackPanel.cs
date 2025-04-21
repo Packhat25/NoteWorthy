@@ -95,7 +95,7 @@ namespace NoteWorthy.Panels
         {
             if (selectedFeedbackID != null)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this feedback?","Confirm Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this feedback?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     bool success = dbHelper.DeleteFeedback(selectedFeedbackID);
@@ -114,7 +114,12 @@ namespace NoteWorthy.Panels
                 }
             }
         }
+
+        private void flpFeedbacks_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
-    
+
 }
