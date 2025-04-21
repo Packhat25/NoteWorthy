@@ -39,8 +39,8 @@
             panel8 = new Panel();
             lblFeedbackID = new Label();
             lblFrom = new Label();
-            lblSubject = new Label();
             lblDate = new Label();
+            lblSubject = new Label();
             panel5 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -168,6 +168,17 @@
             lblFrom.TabIndex = 0;
             lblFrom.Text = "From: <username>";
             // 
+            // lblDate
+            // 
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.Font = new Font("Century Gothic", 10F);
+            lblDate.Location = new Point(753, 3);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(59, 19);
+            lblDate.TabIndex = 5;
+            lblDate.Text = "<Date>";
+            // 
             // lblSubject
             // 
             lblSubject.AutoSize = true;
@@ -177,17 +188,6 @@
             lblSubject.Size = new Size(195, 24);
             lblSubject.TabIndex = 1;
             lblSubject.Text = "Subject: <subject>";
-            // 
-            // lblDate
-            // 
-            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblDate.AutoSize = true;
-            lblDate.Font = new Font("Century Gothic", 10F);
-            lblDate.Location = new Point(753, 3);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(63, 19);
-            lblDate.TabIndex = 5;
-            lblDate.Text = "<Date >";
             // 
             // panel5
             // 
