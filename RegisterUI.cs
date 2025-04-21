@@ -54,6 +54,16 @@ namespace NoteWorthy
                     tbxUsername.Clear();
                     return;
                 }
+                if (dbHelper.IsEmailTaken(email))
+                {
+                    MessageBox.Show("This email is already registered.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbxConfirmPass.Clear();
+                    tbxPassword.Clear();
+                    tbxUsername.Clear();
+                    tbxEmail.Clear();
+                    return;
+                }
+
                 dbHelper.register(username, password, email);
                 this.Opacity = 0;
                 this.Close();

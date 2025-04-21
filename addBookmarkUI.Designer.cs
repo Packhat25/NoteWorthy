@@ -211,6 +211,7 @@
             tbxChap.BackColor = Color.FromArgb(169, 211, 255);
             tbxChap.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbxChap.Location = new Point(357, 192);
+            tbxChap.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             tbxChap.Name = "tbxChap";
             tbxChap.Size = new Size(187, 27);
             tbxChap.TabIndex = 27;
@@ -220,6 +221,7 @@
             tbxVolume.BackColor = Color.FromArgb(169, 211, 255);
             tbxVolume.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbxVolume.Location = new Point(357, 137);
+            tbxVolume.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             tbxVolume.Name = "tbxVolume";
             tbxVolume.Size = new Size(187, 27);
             tbxVolume.TabIndex = 29;
@@ -257,6 +259,7 @@
             tbxPagenum.BackColor = Color.FromArgb(169, 211, 255);
             tbxPagenum.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbxPagenum.Location = new Point(271, 247);
+            tbxPagenum.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             tbxPagenum.Name = "tbxPagenum";
             tbxPagenum.Size = new Size(173, 27);
             tbxPagenum.TabIndex = 35;

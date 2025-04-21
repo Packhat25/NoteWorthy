@@ -113,6 +113,20 @@ namespace NoteWorthy
             }
             return exists;
         }
+        public bool IsEmailTaken(string email)
+        {
+            using (OleDbConnection conn = new OleDbConnection(ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Users WHERE Email = ?";
+                using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?", email);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
         public DataTable GetBookmarks()
         {
             DataTable dt = new DataTable();
@@ -492,11 +506,11 @@ namespace NoteWorthy
                     conn.Open();
 
                     string query = @"
-                SELECT TOP 5 Title, AVG(Rating) AS AvgRating, COUNT(*) AS ReviewCount
-                FROM Bookmarks
-                WHERE Rating IS NOT NULL
-                GROUP BY Title
-                ORDER BY AVG(Rating) DESC";
+            SELECT TOP 5 Title, AVG(Rating) AS AvgRating, COUNT(*) AS ReviewCount
+            FROM Bookmarks
+            WHERE Rating IS NOT NULL
+            GROUP BY Title
+            ORDER BY AVG(Rating) DESC, COUNT(*) DESC";
 
                     using (OleDbCommand cmd = new OleDbCommand(query, conn))
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))

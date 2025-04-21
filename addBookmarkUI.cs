@@ -26,6 +26,11 @@ namespace NoteWorthy
                 MessageBox.Show("Title field cannot be empty!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(tbxGenre.Text=="")
+            {
+                MessageBox.Show("Genre field cannot be empty!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string title, genre, volume, edition, chapter, pageNum, author;
             title = tbxTitle.Text.Trim();
             genre = tbxGenre.Text.Trim();

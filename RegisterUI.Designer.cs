@@ -94,7 +94,7 @@
             tbxPassword.Location = new Point(331, 278);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.Size = new Size(346, 26);
-            tbxPassword.TabIndex = 2;
+            tbxPassword.TabIndex = 3;
             tbxPassword.UseSystemPasswordChar = true;
             // 
             // tbxConfirmPass
@@ -105,7 +105,7 @@
             tbxConfirmPass.Location = new Point(331, 336);
             tbxConfirmPass.Name = "tbxConfirmPass";
             tbxConfirmPass.Size = new Size(346, 26);
-            tbxConfirmPass.TabIndex = 3;
+            tbxConfirmPass.TabIndex = 4;
             tbxConfirmPass.UseSystemPasswordChar = true;
             // 
             // label1
@@ -148,7 +148,7 @@
             btnRegister.Location = new Point(378, 396);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(213, 34);
-            btnRegister.TabIndex = 4;
+            btnRegister.TabIndex = 5;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
@@ -168,7 +168,7 @@
             linklblLogin.Location = new Point(523, 454);
             linklblLogin.Name = "linklblLogin";
             linklblLogin.Size = new Size(68, 15);
-            linklblLogin.TabIndex = 5;
+            linklblLogin.TabIndex = 6;
             linklblLogin.TabStop = true;
             linklblLogin.Text = "Log in Here";
             linklblLogin.LinkClicked += linklblLogin_LinkClicked;
@@ -184,7 +184,7 @@
             btnExit.Location = new Point(670, 2);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(30, 30);
-            btnExit.TabIndex = 6;
+            btnExit.TabIndex = 7;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click_1;
             // 
@@ -252,7 +252,7 @@
             tbxEmail.Location = new Point(331, 220);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(346, 26);
-            tbxEmail.TabIndex = 29;
+            tbxEmail.TabIndex = 2;
             // 
             // RegisterUI
             // 
