@@ -511,6 +511,7 @@ namespace NoteWorthy
             WHERE Rating IS NOT NULL
             GROUP BY Title
             ORDER BY AVG(Rating) DESC, COUNT(*) DESC";
+           
 
                     using (OleDbCommand cmd = new OleDbCommand(query, conn))
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
